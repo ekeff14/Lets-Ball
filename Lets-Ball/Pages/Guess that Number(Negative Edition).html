@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess That Number: Negative Edition</title>
+    <link rel="stylesheet" href="../CSS/Diss.css">
+</head>
+<body>
+    <div class="semi-transparent-background outlined-text normaltext">
+            <div class="game-container">
+
+                <header>
+      
+                    <div aria-label="Home">
+                    <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+                    </div>
+                      
+                    <h1 class="green">Guess That Number: Negative Edition</h1>
+                    <h3>Recommendation: Suitable for 4th to 5th grade students</h3>
+                  </header>
+
+                <p class="bluetopline">Guess a number between -25 and 25:</p>
+                <div class="CTNinstructions">
+                <input type="text" id="user-guess" disabled>
+                <button id="startButton">Play</button>
+                <button onclick="checkGuess()" id="guessButton" disabled>Guess</button>
+                <button id="hintButton" onclick="provideHint()" disabled>Hint</button>
+                <p id="message"></p>
+                <p>Attempts Left: <span id="attempts-left">5</span></p>
+                <p>Time Left: <span id="time-left">30</span> seconds</p>
+                <div id="instructions">
+                    <h2 class="green">How to Play:</h2>
+                    <ul>
+                        <li>Tap the <strong>Play</strong> button to begin.</li>
+                        <li>Guess a number between minus 25 and 25 then type it in.</li>
+                        <li>Hit <strong>Guess</strong> to see if you're right.</li>
+                        <li>You get 5 tries to find the secret number.</li>
+                        <li>If you are stuck Press <strong>Hint</strong> for a little help!</li>
+                    </ul>
+                    </div>
+                    <a href="guessThatNumberNegativeStat.php">Game over? Check how you did over here!</a>
+                </div>
+            </div>
+
+    <script src="../Scripts/Guess that Number- Negative Edition.js"></script>
+
+    </div>
+</body>
+</html>

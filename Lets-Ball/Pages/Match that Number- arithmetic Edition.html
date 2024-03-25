@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match that Number: Arithmetic Edition</title>
+    <link rel="stylesheet" href="../CSS/Diss.css">
+    <style>
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #playButton, #timer-container, #mainTimer {
+            display: block;
+        }
+        #mainTimer {
+            font-weight: bold;
+        }
+        #timer, #matches-made-container {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        #corrections-container {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="semi-transparent-background normaltext">
+        <div class="outlined-text normaltext">
+
+            <header>
+
+                <div aria-label="Home">
+                    <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+                    </div>
+
+        <h1 class="green">Match that Number: Second Edition</h1>
+        <h3>Recommendation: Suitable for 4th grade to 5th grade students</h3>
+        </header>
+
+    <div class="bluetopline" id="mainTimer">60s</div>
+    <div class="CTNinstructions">
+    <p class="green" id="matches-made-container">Matches Made: 0</p>
+    <div id="timer-container">20s</div>
+    <div>
+        <p>Match the result: <span id="targetNumber"></span></p>
+    </div>
+    <div id="buttons-container">
+    </div>
+    <p id="result"></p>
+    <button id="playButton" onclick="startGame()">Start Game</button>
+
+    <div id="corrections-container">
+        <h2>Corrections:</h2>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3 class="green">How to Play:</h3>
+        <p>🌟 When you see a math problem in word form, find and click the number that is the correct answer in digit form.</p>
+        <p>🌈 You have 10 seconds to make each match. If time runs out, a new problem will be shown!</p>
+        <p>💫 Try to make as many matches as you can before the 60 seconds timer runs out.</p>
+        <p>🎉 Each correct match increases your Matches Made count.</p>
+        <p>🚀 Press Start Game to begin!</p>
+    </div>
+
+    
+    </div>
+
+    <script src="../Scripts/Match that Number- Arithmethic Editioin.js"></script>
+
+    </div>
+    </div>
+</body>
+</html>

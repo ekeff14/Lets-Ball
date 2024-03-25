@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess That Number: Random Edition</title>
+    <link rel="stylesheet" href="../CSS/Diss.css">
+</head>
+<body>
+
+    <div class="semi-transparent-background normaltext outlined-text">             
+        <div class="game-container">
+
+    <header>    
+        <div aria-label="Home">
+            <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+            </div>
+            
+                <h1 class="white">Guess That Number: Random Edition</h1>                
+                <h3>Recommendation: Suitable for 4th to 6th grade students</h3>
+            </header>
+                
+                <p class="greentopline" id="rangeDisplay">Guess a number between X and Y:</p>
+                <div class="CTNinstructions">
+                <input type="text" id="user-guess" disabled>
+                <button id="startButton">Play</button>
+                <button onclick="checkGuess()" id="guessButton" disabled>Guess</button>
+                <button id="hintButton" onclick="provideHint()" disabled>Hint</button>
+                <p id="message"></p>
+                <p>Attempts Left: <span id="attempts-left">10</span></p>
+                <p>Time Left: <span id="time-left">60</span> seconds</p>
+                <div id="instructions">
+                    <h2>How to Play:</h2>
+                    <ul>
+                        <li>Press the <strong>Play</strong> button to start.</li>
+        <li>Type a secret number in the box.</li>
+        <li>Press the <strong>Guess</strong> button to see if you're right.</li>
+        <li>You can try 10 times to find the secret number.</li>
+        <li>If you're stuck, press the <strong>Hint</strong> button for help!</li>
+                    </ul>
+                </div>
+                <a href="guessThatNumberRandomStats.php">Game over? Check how you did over here!</a>
+            </div>
+        
+
+    <script src="../Scripts/Guess that Number-Random Edition.js"></script>
+    </div>
+    </div>
+</body>
+</html>

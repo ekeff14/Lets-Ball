@@ -1,0 +1,342 @@
+
+.bar ul{
+  list-style: none;
+     padding: 0;
+     margin: 0;
+     text-align: center
+ }
+ 
+ .bar li{
+     display:inline-flex;
+     font-family: cursive;
+ }
+ 
+ .bar a{
+ text-decoration: overline;
+     width: 100px;
+     display: block;
+     padding: 25px 20px;
+     font-size: 18px;
+     font-weight: bold;
+     text-align: center;
+     color: forestgreen;
+     border: 5px solid black;
+     border-bottom-width: inherit;
+     border-left-width: inherit;    
+     border-right-width: inherit;
+     border-top-width: inherit;
+     border-color: red;
+     
+ }
+ 
+ .bar a:hover{
+     background: red;
+ }
+ 
+ 
+ h1{
+     color: red;
+     font-family: cursive;
+     font-size: 80px;
+     margin: 5px;
+     padding: 15px 10px 25px 8px;
+     text-align: center;
+ }
+ 
+ h2{
+     font-family: cursive;
+     font-size: 25px;
+     color: forestgreen;
+     text-align: center;
+ }
+ 
+ .topline{
+     margin: 20px 0;
+     border-top: 5px solid;
+     border-color: red;
+ }
+ 
+ h3{
+     color: forestgreen;
+     font-family: cursive;
+     font-size: 15px;
+ }
+ 
+ .line{
+     border: 5px solid black;
+     border-bottom-width: medium;
+     border-left-width: inherit;    
+     border-right-width: inherit;
+     border-top-width: inherit;
+     border-color: red;
+     
+ }
+ 
+ .green{
+     color: forestgreen; 
+ }
+ 
+ footer{
+      font-family: cursive;
+      color: red;
+     text-align: center;
+ }
+ 
+ body{
+     text-align: center;
+     background-color: skyblue;
+ }
+ 
+ article{
+     text-align: left;
+     border:5px solid forestgreen;
+ }
+ 
+ .bold{
+     font-size:25px; 
+ }
+ 
+ h4{
+     color: red;
+     font-family: cursive;
+     font-size: 15px;
+ }
+ table{
+         width: 110%;
+         }
+ canvas{ 
+   border: 5px solid red;
+ }
+ .red{
+     color: red; 
+ }
+ 
+ .ref{
+     font-size:8px;
+     font-family: cursive; 
+     max-width: 1000px;
+ }
+ 
+ .refnews{
+     font-size:8px;
+     font-family: cursive; 
+     max-width: 1000px;
+ }
+ .title{
+     font-style: italic;
+ }
+ 
+ .bigger{
+     font-size: 35px;
+     text-decoration: underline;
+ }
+ 
+ .tup{
+     color: red;
+ }
+ 
+ .longline{
+     max-width: 500px;
+ }
+ .responsive{
+  max-width: 105%;
+ max-height: 105%;
+ min-width: 30%;
+ min-height: 30%;
+ text-align: center;
+ }
+ 
+ /*css for form starts here*/
+ .form{
+     border:5px solid forestgreen;
+     margin-left: 100px;
+     margin-right: 100px;
+     max-width: 1000px;
+     text-align: center;
+ }
+ #myemail{
+     font-family: cursive;
+     color: forestgreen;
+     border: 5px solid green;
+ }
+ 
+ #botton{
+     color: white;
+     background-color: red;
+     font-family: cursive;
+     border: 5px solid green;
+ }
+ /*css for form ends here*/
+ 
+ 
+     @media screen and (min-width: 200px) {
+                 
+         .bar a{
+             font-size: 32px; 
+         }
+         h1{
+             font-size: 60xp; 
+         }
+         h2{
+             font-size: 55px;
+         }
+         h3{
+             font-size: 35px;
+         }
+         .ref{
+             font-size: 35px;
+         }
+         .refnews{
+           font-size: 25px;
+       }
+         footer{
+             font-size: 35px;
+         }
+         img{
+           height: 900px;
+           width: 800px;
+           border: 10px solid red;
+       }
+          
+       h4{
+           font-size: 40px;
+       }
+       .bold{
+         font-size: 50px;   
+       } 
+ }
+ 
+  
+   @media screen and (min-width: 1200px) {
+     
+       .ref{
+             font-size: 19px;
+             margin-left: 150px;
+ }
+       .bar a{
+             font-size: 32px; 
+         }
+         h2{
+             font-size: 35px;
+         }
+         h3{
+             font-size: 30px;
+         }
+       h1{
+           font-size: 70px;
+       }
+       .refnews{
+           font-size: 19px;
+       }
+         footer{
+             font-size: 20px;
+         }
+       img{
+           border-radius: 50%;
+           height: 400px;
+           width: 400px;
+           border: 10px solid red;
+       }
+       article{
+           margin-right:auto;
+       }
+       h4{
+           font-size: 35px;
+       }
+       .bold{
+         font-size: 40px;   
+       }
+       table{
+           width: 100%;
+       }
+ }
+ 
+ 
+   @media screen and (min-width: 2000px) {
+     
+       .ref{
+             font-size: 40px;
+             border: 3px sol black;
+             margin-left: 1000px;
+ }
+       .bar a{
+             font-size: 32px; 
+         }
+         h2{
+             font-size: 69px;
+         }
+         h3{
+             font-size: 60px;
+         }
+       h1{
+           font-size: 150px;
+       }
+       .refnews{
+           font-size: 40px;
+       }
+         footer{
+             font-size: 30px;
+         }
+       img{
+           border-radius: 50%;
+           height: 1000px;
+           width: 800px;
+           border: 10px solid red;
+       }
+       .form{
+           margin-left: 900px;
+           display: flex;
+           justify-content: center;
+       }
+       h4{
+           font-size: 60px;
+       }
+       .bold{
+         font-size: 90px;   
+       }
+       table{
+           width: 100%;
+       }
+       
+     .grid{
+           width: 500px;
+           height: 300px;
+           border: solid black 3px;
+       }
+     }
+
+.grid {
+  position: relative;
+  width: 560px;
+  height: 300px;
+  border: solid 3px black;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: aliceblue ;
+}
+
+.user {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background-color: red;
+}
+
+.block {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  background-color: blue;
+}
+
+.ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: green;
+}
+
+.inst{
+    color: red;
+}

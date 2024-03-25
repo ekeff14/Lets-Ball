@@ -1,0 +1,539 @@
+img{
+    
+    width: 30%;
+    border-radius: 1vw;
+    border: 0.4vw solid red;
+    max-width: 100%;
+    height: auto;
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color: green;
+}
+
+.white{
+    color: white;
+}
+
+.tips{
+    border: 0.4vw solid green;
+    border-radius: 1vw;
+    max-width: max-content;
+    min-width: min-content;
+    max-height: max-content;
+    min-height: min-content;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.tips2{
+    border: 0.4vw solid blue;
+    border-radius: 1vw;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: max-content;
+    min-width: min-content;
+    max-height: max-content;
+    min-height: min-content;
+}
+
+.herosection{
+    border: 0.5vw solid blue;
+    border-radius: 1vw;
+    max-width: max-content;
+    min-width: min-content;
+    max-height: max-content;
+    min-height: min-content;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.bar ul{
+ list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.bar li{
+    display:inline-flex;
+    font-family: cursive;
+}
+
+.login-container {
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center the text inside the container */
+    border: 0.5vw solid green;
+    border-radius: 1vw;
+    max-width: max-content;
+    min-width: min-content;
+    max-height: max-content;
+    min-height: min-content;
+}
+
+
+body {
+    background-image: url('Images/backg.png');  
+    background-size: cover;  /*This will cover the entire area of the body*/ 
+    background-repeat: repeat; 
+    background-attachment:fixed;
+    
+}
+
+
+
+.boxed {
+    max-width: max-content;
+    min-width: min-content;
+    max-height: max-content;
+    min-height: min-content;
+    margin: auto;
+    padding: 3vw;
+    border-radius: 1vw; /* rounds the corners */
+    border: 0.5vw solid red;
+}
+
+
+footer {
+    text-align: center;
+    /* Additional footer styling */
+}
+
+.social-media a {
+    display: inline-block;
+    margin: auto;
+    text-decoration: none;
+    color: inherit; /* or any color you prefer */
+}
+
+.social-media img {
+    vertical-align: middle;
+    width: 8%; /* Adjust size as needed */
+    height: auto;
+    margin:auto;
+    
+}
+
+/*games styling begins here*/
+
+#playButton{
+    margin: auto;
+}
+
+#minigameimg1 {
+    width: 100%; 
+    height: auto; /* Keep the aspect ratio of the image */
+    border: 0.4vw solid red;
+    border-radius: 1vw;
+    margin-left: -40%; 
+    margin-top: 40%;
+    max-width: 100%;
+}
+
+#minigameimg2 {
+    width: 100%; 
+    height: auto; /* Keep the aspect ratio of the image */
+    border: 0.4vw solid green;
+    border-radius: 1vw;
+    margin-left: -40%; 
+    margin-top: 40%;
+}
+
+#minigameimg3 {
+    width: 120%; 
+    height: auto; /* Keep the aspect ratio of the image */
+    border: 0.4vw solid blue;
+    border-radius: 1vw;
+    margin-left: -40%; 
+    margin-top: 40%;
+}
+
+#gameimg1{
+    width: 30%;
+    height: 30%;
+    border: 0.4vw solid green;
+    border-radius: 1vw;
+}
+
+#gameimg2{
+    width: 30%;
+    height: 30%;
+    border: 5 solid blue;
+    border-radius: 1vw;
+}
+
+#gameimg3{
+    width: 30%;
+    height: 30%;
+    border: 0.4vw solid red;
+    border-radius: 1vw;
+}
+
+
+#socimg1{
+    border: 0.2vw solid blue;
+}
+
+#socimg2{
+    border: 0.2vw solid green;
+}
+
+#socimg3{
+    border: 0.2vw solid red;
+}
+
+/*CTN game*/
+.number {
+    width: 4.5vw;
+    height: 5vw;
+    display: inline-block;
+    text-align: center;
+    font-size: 2vw;
+    margin: auto;
+    cursor: pointer;
+}
+button {
+    margin: auto;
+    padding: 1.5vw 2vw;
+    font-size: 3vw;
+    cursor: pointer;
+}
+#helpButton {
+    display: none; /* Initially hide the help button */
+}
+#corrections {
+    margin-top: auto;
+    display: none; /* Initially hide the corrections */
+}
+#streakCounter {
+    font-size: 2vw;
+    margin-top: auto; /* Space above the streak counter */
+}
+/*CTN game ends*/
+
+.game-container {    
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}/*guess that num*/
+
+#quiz-container {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+    text-decoration: underline;
+}/*alpha quiz*/
+
+#input-container {
+    margin-top: 2vw;
+}/*alpha quiz*/
+
+#timer-container {
+    font-size: 1.5vw;
+}/*alpha quiz*/
+
+#score-container {
+    font-size: 2vw;
+    margin-bottom: 2vw;
+}/*alpha quiz*/
+
+/*games styling ends here*/
+
+.outlined-text {
+    color: white;
+    text-shadow: 
+        -1.5px -1.5px 0 #000,  
+         1.5px -1.5px 0 #000,
+        -1.5px  1.5px 0 #000,
+         1.5px  1.5px 0 #000;
+}
+
+.drop-shadow-text {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.semi-transparent-background {
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bar ul li a {
+    color: green; /* Sets the color of the nav bar links to green */
+}
+
+.bar a{
+text-decoration: overline;
+    display: block;
+    padding: 25px 20px;
+    font-size: 2.5vw;
+    font-weight: bold;
+    text-align: center;
+    border-bottom-width: inherit;
+    border-left-width: inherit;    
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-color: red;
+    
+}
+
+.bar a:hover{
+    background: red;
+}
+
+#number-container {
+    width: 100%; /* Adjust to match the width of the red border container */
+    height: auto; /* Adjust based on your preference */
+    margin: auto; /* Center the container if needed */
+    flex-wrap: wrap; /* Wrap items to the next line if they can't fit */
+    overflow: auto; /* Add a scrollbar if the content overflows */
+    box-sizing: border-box; /* Include padding and border in the element's width and height */
+  }  
+
+h1{
+    color: white;
+    font-family: cursive;
+    font-size: 7vw;
+    margin: 5px;
+    padding: 15px 10px 25px 8px;
+    text-align: center;
+}
+
+h2{
+    font-family: cursive;
+    font-size: 3vw;
+    color: white;
+    text-align: center;
+}
+
+button{
+    margin: auto;
+}
+
+.topline{
+    margin: 20px 0;
+    border-top: 0.4vw solid;
+    border-color: red;
+}
+
+.greentopline{
+    margin: 20px 0;
+    border-top: 0.4vw solid;
+    border-color: green;
+}
+
+.bluetopline{
+    margin: 20px 0;
+    border-top: 0.4vw solid;
+    border-color: blue;
+}
+
+.gamebox {
+    width: 60%;
+    height: auto; /* Adjust height to auto */
+    display: block; /* Use block to stack elements */
+    margin: 20px auto; /* Center the game box */
+    border-radius: 100px;
+    padding: 20px; /* Add some padding */
+    box-sizing: border-box; /* Include padding and border in the element's width and height */
+}
+
+.minitopline1 {
+    width: 100%; /* Take the full width of the gamebox */
+    margin: 10px 0; /* Add some margin at the top and bottom */
+    text-align: center; /* Center text if needed */
+    display:flex;
+    border-top: 0.4vw solid;
+    border-color: green;
+    margin: 10px 0;
+}
+
+.minitopline2 {
+    width: 100%; /* Take the full width of the gamebox */
+    margin: 10px 0; /* Add some margin at the top and bottom */
+    text-align: center; /* Center text if needed */
+    display:flex;
+    border-top: 0.4vw solid;
+    border-color: blue;
+    margin: 10px 0;
+}
+
+.minitopline3 {
+    width: 100%; /* Take the full width of the gamebox */
+    margin: 10px 0; /* Add some margin at the top and bottom */
+    text-align: center; /* Center text if needed */
+    display:flex;
+    border-top: 0.4vw solid;
+    border-color: red;
+    margin: 10px 0;
+}
+
+.game{
+    /*border: 5px solid red;*/
+    width: 70%;
+    margin: auto;
+    
+}
+
+.CTNinstructions{    /*count that number game css*/
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    border-bottom: 0.4vw solid red;
+    border-left: 0.4vw solid red;
+    border-right: 0.4vw solid red;
+}
+
+.instructions{    
+    border-radius: 10px;
+    width: 30%;
+    margin: auto;
+    border-bottom: 0.4vw solid red;
+    border-left: 0.4vw solid red;
+    border-right: 0.4vw solid red;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+h3{
+    color: white;
+    font-family: cursive;
+    font-size: 2vw;
+}
+
+.normaltext{
+    font-size: 1.5vw;
+    font-family: cursive;
+}
+
+p{
+    font-size: 1.4vw;
+}
+
+.line{
+    border: 5px solid red;
+    border-bottom-width: medium;
+    border-left-width: inherit;    
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-color: red;
+    
+}
+
+footer{
+     font-family: cursive;
+     color: red;
+    text-align: center;
+}
+
+body{
+    text-align: center;
+    background-color: skyblue;
+}
+
+h4{
+    color: white;
+    font-family: cursive;
+    font-size: 1.5vw;
+}
+table{
+    max-width: max-content;
+    min-width: min-content;
+    max-height: max-content;
+    min-height: min-content;
+    margin: auto;
+    border: 0.25vw solid blue;
+        }
+
+.title{
+    font-style: italic;
+}
+
+.responsive{
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: center;
+}
+
+/*css for form starts here*/
+.form{
+    border:0.4vw solid red;
+    max-width: max-content;
+    min-width: min-content;
+    max-height: max-content;
+    min-height: min-content;
+    text-align: center;
+    border-radius: 1vw;
+    margin: auto;
+}
+
+.blueform{
+    border:0.4vw solid blue;
+    max-width: max-content;
+    min-width: min-content;
+    max-height: max-content;
+    min-height: min-content;
+    text-align: center;
+    border-radius: 1vw;
+    margin: auto;   
+}
+
+.stats{
+    border:0.4vw solid green;
+    max-width: max-content;
+    min-width: min-content;
+    max-height: max-content;
+    min-height: min-content;
+    text-align: center;
+    border-radius: 1vw;
+    margin: auto;
+}
+
+/* In your external stylesheet file, e.g., style.css */
+
+
+th, td {
+    border: 0.2vw solid blue; /* This adds the border to each individual cell */
+    
+  }
+
+button {
+    background-color: green; 
+    border: 0.2vw solid #e7e7e7; 
+    
+    color: white; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; /* Allows setting dimensions */
+    font-size: 1.5vw; 
+    margin: 1vw; 
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 1vw; 
+    transition: all 0.3s ease 0s; /* Smooth transition for hover effects */
+  }
+  
+  button:hover {
+    background-color: green; /* Darker shade of green on hover */
+    color: #e7e7e7; /* Light text color on hover */
+    border-color: green; /* Border color changes to original background color */
+    transform: scale(1.05); /* Slightly increase button size */
+  }
+  
+
+/*css for form ends here*/
+
