@@ -3,7 +3,7 @@
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
 
 // Example values for Game_ID and Event_Type
-$game_id = 2; // Assuming a Game_ID of 1 for demonstration
+$game_id = 5; // Assuming a Game_ID of 1 for demonstration
 $eventType = 'Score'; // Assuming you're looking for the "Score" event type
 
 // Prepare the SQL statement

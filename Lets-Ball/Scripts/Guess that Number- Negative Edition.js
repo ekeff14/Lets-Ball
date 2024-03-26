@@ -72,7 +72,7 @@ let secretNumber;
                 NEfirstAttemptWin = true;
             }
 
-    const gameId = await fetchGameId('GuessNumber');
+    const gameId = await fetchGameId('GuessNumberN');
     logEvent(gameId, "First Attempt Win", NEfirstAttemptWin);
     logEvent(gameId, "Number of Guesses", NEnumberOfGuesses);
     logEvent(gameId, "TimeSpent", NEtimercheck);

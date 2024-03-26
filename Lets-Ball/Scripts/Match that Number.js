@@ -1,6 +1,7 @@
 let timer;
         let mainTimer;
         let matchesMade = 0;
+        let wrongMatch = 0;
         let corrections = [];
         let attemptedNumbers = [];
         const numberWords = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
@@ -70,13 +71,14 @@ let timer;
                 document.getElementById('matches-made-container').textContent = `Matches Made: ${matchesMade}`;
                 document.getElementById('result').textContent = "Correct!";
             } else {
+                wrongMatch++;
                 document.getElementById('result').textContent = "Incorrect. Moving to the next number.";
             }
             setNextTargetNumber();
         }
 
         function startTimer() {
-            clearInterval(timer);
+            clearInterval(timer);            
             let seconds = 10;
             document.getElementById('timer-container').textContent = `${seconds}s`;
             timer = setInterval(() => {
@@ -91,10 +93,10 @@ let timer;
         }
 
         function startMainTimer() {
-            let mainSeconds = 60;
+            let mainSeconds = 20;
             clearInterval(mainTimer);
             mainTimer = setInterval(() => {
-                mainSeconds--;
+                mainSeconds--
                 document.getElementById('mainTimer').textContent = `${mainSeconds}s`;
                 if (mainSeconds <= 0) {
                     clearInterval(mainTimer);
@@ -103,8 +105,15 @@ let timer;
             }, 1000);
         }
 
-        function endGame() {
+        async function endGame() {
             clearInterval(timer);
+            matchesMade;wrongMatch;
+            let ratio = matchesMade/wrongMatch;
+            const mainRatio = ratio.toFixed(2); console.log(mainRatio);
+            const gameId = await fetchGameId('MatchNumber');
+            logEvent(gameId, "Correct Matches Made", matchesMade);
+            logEvent(gameId, "Incorrect Matches Made", wrongMatch);            
+            
             document.getElementById('result').textContent = `Game over! Matches Made: ${matchesMade}.`;
             document.getElementById('playButton').style.display = 'block';
             hideNumberButtons();
@@ -120,4 +129,41 @@ let timer;
                 correctionsContainer.appendChild(p);
             });
             correctionsContainer.style.display = 'block';
+        }
+
+        function logEvent(gameId, eventType, eventValue) {
+            fetch('../Pages/log-event.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    game_id: gameId,
+                    event_type: eventType,
+                    event_value: eventValue,
+                }),
+            })
+            .then(response => response.text()) // First, get the response as text
+    .then(text => {
+        console.log(text); // Log the raw text response
+        return JSON.parse(text); // Then attempt to parse it as JSON
+    })
+    .then(data => console.log('Event logged successfully', data))
+    .catch((error) => console.error('Error logging event:', error));
+        }
+
+        async function fetchGameId(gameName) {
+            try {
+                const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
+                const data = await response.json();
+                if(data.GameID) {
+                    return data.GameID;
+                    console.log("Game ID:", data.GameID);
+                    // You can now use the GameID in your JavaScript as needed
+                } else {
+                    console.log("Game not found or error fetching Game ID.");
+                }
+            } catch (error) {
+                console.error("Error fetching Game ID:", error);
+            }
         }
