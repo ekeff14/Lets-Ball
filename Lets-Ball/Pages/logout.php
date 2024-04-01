@@ -20,6 +20,11 @@ if (isset($_SESSION['userId'])) {
 
     session_destroy(); // Then, destroy the session
     session_write_close(); // Ensure session data is written and closed before redirecting
+    
+echo '<script type="text/javascript">';
+echo 'alert("You are being logged out");';
+echo '</script>';
+
     header("Location: login.php"); // Redirect to the login page
     exit; // Ensure no further code is executed after redirection
 } else {

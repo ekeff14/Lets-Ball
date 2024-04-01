@@ -30,6 +30,7 @@ let shuffledSentences;
 let currentIndex = 0;
 let timer;
 let score = 0;
+let wrongAnswer = 0;
 let isGameActive = false;
 
 document.getElementById('playButton').addEventListener('click', startGame);
@@ -73,6 +74,8 @@ function checkAnswer() {
     if(userInput === currentSentence && isGameActive) {
         score++;
         updateScore();
+    }else {
+        wrongAnswer++
     }
     currentIndex++;
     if(currentIndex >= shuffledSentences.length) {
@@ -85,6 +88,7 @@ function checkAnswer() {
 function startGame() {
     shuffledSentences = getRandomSentences(); // Get a new set of sentences
     currentIndex = 0;
+    wrongAnswer = 0;
     score = 0;
     isGameActive = true;
     document.getElementById('user-input').disabled = false;
@@ -94,13 +98,54 @@ function startGame() {
     updateGameStatus();
 }
 
-function endGame() {
+ async function endGame() {
     clearInterval(timer);
     isGameActive = false;
+    const gameId = await fetchGameId('AlphabetQuiz');
+    logEvent(gameId, "Correct Answer", score);
+    logEvent(gameId, "Wrong Answer", wrongAnswer);
     document.getElementById('timer-container').textContent = '';
     document.getElementById('message-container').textContent = `Yay! Your score is ${score} out of ${shuffledSentences.length}.`;
     document.getElementById('playButton').style.display = 'block';
     document.getElementById('user-input').disabled = true;
+}
+
+function logEvent(gameId, eventType, eventValue) {
+    fetch('../Pages/log-event.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            game_id: gameId,
+            event_type: eventType,
+            event_value: eventValue,
+        }),
+    })
+    .then(response => response.text()) // First, get the response as text
+.then(text => {
+console.log(text); // Log the raw text response
+return JSON.parse(text); // Then attempt to parse it as JSON
+})
+.then(data => console.log('Event logged successfully', data))
+.catch((error) => console.error('Error logging event:', error));
+}
+
+
+async function fetchGameId(gameName) {
+    try {
+        const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
+        const data = await response.json();
+        if(data.GameID) {
+            return data.GameID;
+            console.log("Game ID:", data.GameID);
+            // You can now use the GameID in your JavaScript as needed
+        } else {
+            console.log("Game not found or error fetching Game ID.");
+        }
+    } catch (error) {
+        console.error("Error fetching Game ID:", error);
+    }
 }
 
 function updateGameStatus() {

@@ -67,7 +67,8 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
         
                 <section class="form">
                     <h2>Send me a message</h2>
-                    <form action="sendmail.php" method="post"> <!-- Update form action path -->
+                    <form action="https://www.dcs.shef.ac.uk/cgi-intranet/public/FormMail.php" method="POST">
+                        <input type="hidden" name="recipients" value="jeasiana1@sheffield.ac.uk">
                         <label for="name">Name:</label><br>
                         <input type="text" id="name" name="name" required><br>
         
@@ -81,6 +82,39 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
                         <!--<input type="submit" value="Submit"><br>-->
                     </form>
                 </section>
+
+                <h3 class="line">
+                
+                <div class="form">
+                <form name="Complaints" 
+                    action=
+                      method = "POST">
+                    
+                    
+                    <p>
+                        <label for="myemail"> <div class="red">Email</div></label>
+                        <input type="email" name="myemail" id="myemail"
+                               placeholder="name@something.com" maxlength="100" size="25"
+                               required="required">
+                    </p>
+                    
+                     
+                    
+                    <label for="comment"><div class="red">Comment below</div></label>
+                    
+                    <textarea
+                            name="comments" rows="3" cols="30" >
+                    </textarea>
+
+                <br>
+                    <input type="submit" value="Submit" id="botton">
+                    <br>
+                    
+                </form>
+                </div>
+                <p><a href="#top">^</a></p>
+            </h3>
+
             </main>
          
            

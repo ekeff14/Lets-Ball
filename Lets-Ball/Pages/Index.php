@@ -12,7 +12,7 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
             $_SESSION['start_time'] = time();
             $_SESSION['expire_time'] = $_SESSION['start_time'] + $remainingTime;
         }else{
-            checkSession(); 
+checkSession(); 
         }
 //ends here
 

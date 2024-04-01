@@ -48,16 +48,16 @@
                 <li>Keep going until we say 'Yay!'</li>
                 <li>And think before you type!</li>
             </ul>
+            <a href="alphabetQuizLetterStats.php">Game over? Check how you did over here!</a>
             </div>
 
-            <script type="module" src="../Scripts/startCounter.js"></script>   
             <script>
-
                 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 let shuffledAlphabet = shuffleArray([...alphabet]);
                 let currentIndex = 0;
                 let timer;
                 let score = 0;
+                let wrongAnswer = 0;
                 let isGameActive = false; // Track if the game is active
 
                 document.getElementById('playButton').addEventListener('click', startGame);
@@ -88,6 +88,9 @@
                     if((userInput === shuffledAlphabet[currentIndex] || userInput === shuffledAlphabet[currentIndex].toLowerCase()) && currentIndex < shuffledAlphabet.length && isGameActive) {
                         score++;
                     }
+                    else {
+                    wrongAnswer++
+                    }
                     // Move to the next letter only if the game is still active
                     if(isGameActive) {
                         currentIndex++;
@@ -96,9 +99,9 @@
                 }
 
                 function startGame() {
-                    fetchCountdownEndTimestampAndStartTimer();
                     currentIndex = 0;
                     score = 0;
+                    wrongAnswer = 0;
                     shuffledAlphabet = shuffleArray([...alphabet]);
                     isGameActive = true; // Mark the game as active
                     document.getElementById('user-input').disabled = false;
@@ -107,9 +110,12 @@
                     updateGameStatus(); // Update the status to start the game
                 }
 
-                function endGame() {
+                async function endGame() {
                     clearInterval(timer); // Stop the timer as the game has ended
                     isGameActive = false; // Mark the game as not active
+                    const gameId = await fetchGameId('AlphabetQuizL');
+                    logEvent(gameId, "Correct Answer", score);
+                    logEvent(gameId, "Wrong Answer", wrongAnswer);
                     document.getElementById('timer-container').textContent = '';
                     document.getElementById('message-container').textContent = `Yay! your score is ${score} out of ${shuffledAlphabet.length}.`;
                     document.getElementById('playButton').style.display = 'block'; // Show the start button again for a new game
@@ -144,6 +150,46 @@
                         }
                     }, 1000);
                 }
+
+                function logEvent(gameId, eventType, eventValue) {
+                    fetch('../Pages/log-event.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            game_id: gameId,
+                            event_type: eventType,
+                            event_value: eventValue,
+                        }),
+                    })
+                        .then(response => response.text()) // First, get the response as text
+            .then(text => {
+console.log(text); // Log the raw text response
+return JSON.parse(text); // Then attempt to parse it as JSON
+})
+.then(data => console.log('Event logged successfully', data))
+.catch((error) => console.error('Error logging event:', error));
+}
+
+
+async function fetchGameId(gameName) {
+    try {
+        const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
+        const data = await response.json();
+        if(data.GameID) {
+            return data.GameID;
+            console.log("Game ID:", data.GameID);
+            // You can now use the GameID in your JavaScript as needed
+        } else {
+            console.log("Game not found or error fetching Game ID.");
+        }
+    } catch (error) {
+        console.error("Error fetching Game ID:", error);
+    }
+}
+
+
             </script>
         </div>
     </div>

@@ -31,14 +31,19 @@ function checkSession() {
 
     // Check if the session should expire
     if (time() > $_SESSION['expire_time']) {
+        echo '<script type="text/javascript">';
+        echo 'alert("You are being logged out");';
+        echo '</script>';
         // Unset all session variables
         $_SESSION = array();
-        
+            
+
         // Destroy the session
         session_destroy();
-        
+
+      
         // Redirect to login page
-        header("Location: login.php");
+        header("Location: timeout.php");
         exit;
     }
 }
@@ -78,8 +83,3 @@ function getRemainingSessionTime($userId, $conn) {
 }
 
 
-
-// Call the session check function on every script/page load
-// 
-
-//... rest of your page-specific code

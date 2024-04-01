@@ -1,6 +1,4 @@
 // The arrays of words
-import { fetchCountdownEndTimestampAndStartTimer } from './startCounter.js';
-
 const wordsArray1 = ["cat", "dog", "sun", "ball", "hat"];
 const wordsArray2 = ["tree", "bird", "cloud", "star", "moon"];
 const wordsArray3 = ["apple", "orange", "grape", "melon", "peach"];
@@ -12,6 +10,7 @@ let currentIndex = 0;
 let timer;
 let score = 0;
 let isGameActive = false;
+let wrongAnswer = 0;
 
 document.getElementById('playButton').addEventListener('click', startGame);
 document.getElementById('submit-answer').addEventListener('click', checkAnswer); // Event listener for the submit button
@@ -53,6 +52,9 @@ function checkAnswer() {
         score++;
         document.getElementById('score-container').textContent = `Score: ${score}`;
     }
+    else {
+    wrongAnswer++
+    }
     currentIndex++;
     if(currentIndex >= shuffledWords.length) {
         endGame();
@@ -62,23 +64,23 @@ function checkAnswer() {
 }
 
 function startGame() {
-
     shuffledWords = getRandomWordSets();
     currentIndex = 0;
     score = 0;
+    wrongAnswer = 0;
     isGameActive = true;
     document.getElementById('user-input').disabled = false;
     document.getElementById('playButton').style.display = 'none';
     document.getElementById('message-container').textContent = '';
     updateGameStatus();
 }
-window.addEventListener('beforeunload', function(event) {
-    navigator.sendBeacon('/update-time.php', '');
-});
 
-function endGame() {
+async function endGame() {
     clearInterval(timer);
     isGameActive = false;
+    const gameId = await fetchGameId('AlphabetQuizW');
+    logEvent(gameId, "Correct Answer", score);
+    logEvent(gameId, "Wrong Answer", wrongAnswer);
     document.getElementById('timer-container').textContent = '';
     document.getElementById('message-container').textContent = `Yay! Your score is ${score} out of ${shuffledWords.length}.`;
     document.getElementById('playButton').style.display = 'block';
@@ -107,4 +109,42 @@ function startTimer() {
             checkAnswer();
         }
     }, 1000);
+}
+
+function logEvent(gameId, eventType, eventValue) {
+    fetch('../Pages/log-event.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            game_id: gameId,
+            event_type: eventType,
+            event_value: eventValue,
+        }),
+    })
+    .then(response => response.text()) // First, get the response as text
+.then(text => {
+console.log(text); // Log the raw text response
+return JSON.parse(text); // Then attempt to parse it as JSON
+})
+.then(data => console.log('Event logged successfully', data))
+.catch((error) => console.error('Error logging event:', error));
+}
+
+
+async function fetchGameId(gameName) {
+    try {
+        const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
+        const data = await response.json();
+        if(data.GameID) {
+            return data.GameID;
+            console.log("Game ID:", data.GameID);
+            // You can now use the GameID in your JavaScript as needed
+        } else {
+            console.log("Game not found or error fetching Game ID.");
+        }
+    } catch (error) {
+        console.error("Error fetching Game ID:", error);
+    }
 }
