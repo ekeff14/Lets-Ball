@@ -43,7 +43,6 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
                     <nav>
                         <div class="bar">
                             <ul class="outlined-text">
-                            <li> <a href="Parental_Control.php">Parental Control</a></li>
                             <li><a href="Index.php">Homepage</a></li>
                             <li> <a href="Sample Game.php">Games</a></li>
                             <li> <a href="contactus.php">Contacts</a></li>

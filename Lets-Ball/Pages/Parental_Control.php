@@ -46,7 +46,7 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
         
             <main>
 
-                <h3 class="greentopline">Welcome guardians, here you can control how long you want your child to have access to the site.<br> Please type in the prefered duration which you want your child to have access to the site!.</h3>
+                <h3 class="greentopline">Welcome guardians, here you can control how long you want your child to have access to the site.<br> Please type in the prefered duration which you want your child to have access to the site, and please note the minimum set time is an hour.</h3>
 
                 
        <form action="set_limit.php" method="post" class="blueform">

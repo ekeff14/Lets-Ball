@@ -58,7 +58,6 @@ $username = $_SESSION["username"];
     <nav>
         <div class="bar">
             <ul class="outlined-text">
-            <li> <a href="Parental_Control.php">Parental Control</a></li>
             <li><a href="Sample Game.php">Games</a></li>
             <li> <a href="contactus.php">Contacts</a></li>
             <li> <a href="Accessibility.php">Accessibility</a></li>
@@ -89,21 +88,22 @@ But that's not all! Our games are like hidden gems that sparkle with fun but are
 
 So, are you ready to step into a world where learning feels like play, and every game is an adventure? Let's dive in and discover all the fun and learning that awaits you!
 
-Remember, every great journey starts with a single click. Let's make it count! 💫
+Remember, every great journey starts with a single click. Let's make it count! 💫<br>
+
+<h3>Hey guardian, do you want to control your child's screen time on the site?
+if so click on here to access the <a href="Parental_Control.php">Parental Control</a> page. Your welcome😉.</h3>
 </div>
                 </div>
         </p>  
 
-                            <div class="tips">
+            <div class="tips normaltext">
             <h3 class="red">Some useful tips for You</h3>
-            <div class="normaltext">
             <ul>
                 <li>Click the logo to return to the home page</li>
-                <li>Put game Recommendations here</li>
                 <li>Press the 'tab' button to navigate with keyboard</li>
-                <li>Click '^' to return to the top of a page</li>
+                <li>Click '^' to return to the top of a page where available.</li>
+                <li>Game recommendations are provided for you in the games page. </li>
             </ul>
-            </div>
         </div>
         
               

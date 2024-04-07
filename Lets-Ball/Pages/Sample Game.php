@@ -52,7 +52,6 @@ $username = $_SESSION["username"];
   <nav>
     <div class="bar">
         <ul class="outlined-text">
-        <li> <a href="Parental_Control.php">Parental Control</a></li>
         <li><a href="Index.php">Homepage</a></li>
         <li> <a href="contactus.php">Contacts</a></li>
         <li> <a href="Accessibility.php">Accessibility</a></li>
@@ -69,8 +68,40 @@ $username = $_SESSION["username"];
         Each game is a doorway to a new adventure, filled with challenges that are just right for your age. Our friendly guides and vibrant graphics make learning exciting and accessible. So, what are you waiting for? Jump into the world of fun and learning where every click brings a new discovery!
       </h3>
 
+      <ol class="tips normaltext">
+  <h3>Game Recommendations</h3>
+  <li>Count that Number:
+    <ul>
+      <li>First Edition: Nursery (ages 3-4) to Year 1 (ages 5-6).</li>
+      <li>Second Edition: Year 2 (ages 6-7) to Year 3 (ages 7-8).</li>
+    </ul>
+  </li>
+  <li>Match that Number:
+    <ul>
+      <li>First Edition: Year 1 (ages 5-6) to Year 2 (ages 6-7).</li>
+      <li>Arithmetic Edition: Not suitable for the target age range.</li>
+    </ul>
+  </li>
+  <li>Alphabet Quiz:
+    <ul>
+      <li>First Edition: Nursery (ages 3-4) to Reception (ages 4-5).</li>
+      <li>Word Edition: Year 1 (ages 5-6) to Year 2 (ages 6-7).</li>
+      <li>Sentence Edition: Year 3 (ages 7-8).</li>
+    </ul>
+  </li>
+  <li>Guess that Number:
+    <ul>
+      <li>First Edition: Reception (ages 4-5) to Year 2 (ages 6-7).</li>
+      <li>Negative Edition: High difficulty(No age Recommendation).</li>
+      <li>Random Edition: High difficulty(No age Recommendation).</li>
+    </ul>
+  </li>
+</ol>
+
+
+
       <div class="gamebox">
-        <a href="Alphabet Quiz.php"><img src="../CSS/Images/playaq.png" id="gameimg1" alt="Play Alphabet Quiz!"></a>
+        <a href="Alphabet Quiz.php"><img src="../CSS/Images/playaq.png" id="gameimg3" alt="Play Alphabet Quiz!"></a>
         <p class="normaltext">Play the Alphabet Quiz Series: From single letters to entire sentences, our Alphabet Quiz games are here to guide you through the wonders of the alphabet. Learn letters, spell words, and build sentences in a colorful, engaging way.</p>
         
         <a href="Count that Number.php"><img src="../CSS/Images/playctn.png" id="gameimg2" alt="Play Count That Number!"></a>

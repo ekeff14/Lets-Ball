@@ -130,7 +130,7 @@ footer {
     margin: auto;
 }
 
-#minigameimg1 {
+#minigameimg1 { /*individual games images */
     width: 100%; 
     height: auto; /* Keep the aspect ratio of the image */
     border: 0.4vw solid red;
@@ -150,7 +150,7 @@ footer {
 }
 
 #minigameimg3 {
-    width: 120%; 
+    width: 100%; 
     height: auto; /* Keep the aspect ratio of the image */
     border: 0.4vw solid blue;
     border-radius: 1vw;
@@ -168,7 +168,7 @@ footer {
 #gameimg2{
     width: 30%;
     height: 30%;
-    border: 5 solid blue;
+    border: 0.4vw solid blue;
     border-radius: 1vw;
 }
 
