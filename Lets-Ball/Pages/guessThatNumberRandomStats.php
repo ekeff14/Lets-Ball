@@ -66,7 +66,7 @@ foreach ($eventTypes as $eventType) {
             </header> 
 
             <main class="greentopline">
-                <h4>Write some texts</h4>
+                <h4>Check out how well you performed below!</h4>
          <?php 
          echo "<table>";
          echo "<thead><tr>";
@@ -83,8 +83,9 @@ foreach ($eventTypes as $eventType) {
         
         
         ?>
-            </main>   
-            
+            </main> 
+
+            <h3><a href="guessThatNumberRandomEdition.html">Return to game</a></h3>
     
        </div>
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess That Number: Random Edition</title>
+    <link rel="stylesheet" href="../CSS/Diss.css">
+</head>
+<body>
+
+    <div class="semi-transparent-background normaltext outlined-text">             
+        <div class="game-container">
+
+    <header>    
+        <div aria-label="Home">
+            <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+            </div>
+            
+                <h1 class="white">Guess That Number: Random Edition</h1>                
+                <h3>Recommendation: High difficulty(No age Recommendation)</h3>
+            </header>
+                
+                <p class="greentopline" id="rangeDisplay">Guess a number between X and Y:</p>
+                <div class="CTNinstructions">
+                <input type="text" id="user-guess" disabled>
+                <button id="startButton">Play</button>
+                <button onclick="checkGuess()" id="guessButton" disabled>Guess</button>
+                <button id="hintButton" onclick="provideHint()" disabled>Hint</button>
+                <p id="message"></p>
+                <p>Attempts Left: <span id="attempts-left">30</span></p>
+                <p>Time Left: <span id="time-left">480</span> seconds</p>
+                <div id="instructions">
+                    <h2>How to Play:</h2>
+                    <ul>
+                        <li>Press the <strong>Play</strong> button to start.</li>
+        <li>Type a secret number in the box.</li>
+        <li>Press the <strong>Guess</strong> button to see if you're right.</li>
+        <li>You can try 30 times to find the secret number.</li>
+        <li>If you're stuck, press the <strong>Hint</strong> button for help!</li>
+        <li>You don't like the range of numbers to guess? just refresh the page</li>
+                    </ul>
+                </div>
+                <h3><a href="guessThatNumberRandomStats.php">Game over? Check how you did over here!</a></h3>
+            </div>
+        
+
+    <script src="../Scripts/guessThatNumberRandomEdition.js"></script>
+    </div>
+    </div>
+</body>
+</html>

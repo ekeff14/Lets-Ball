@@ -2,9 +2,9 @@
 
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
 
-// Example values for Game_ID and Event_Type
-$game_id = 6; 
-$eventType = 'Score'; // Assuming you're looking for the "Score" event type
+
+$game_id = 10; 
+$eventType = 'Score'; 
 
 // Prepare the SQL statement
 // Assuming you're fetching events for a specific game
@@ -15,7 +15,7 @@ $sqlTemplate = "SELECT Event_Value FROM event
                 ORDER BY Event_ID DESC 
                 LIMIT 1";
 
-$eventTypes = ['Correct Matches Made', 'Incorrect Matches Made'];
+$eventTypes = ['First Attempt win', 'Number of Guesses', 'TimeSpent'];
 $latestValues = [];
 
 foreach ($eventTypes as $eventType) {
@@ -44,7 +44,7 @@ foreach ($eventTypes as $eventType) {
 
     <head>
   <meta charset="utf-8">
-  <title>Match That Number Arithmetic Edition Statistic</title>
+  <title>Guess That Number Random Edition Statistic</title>
   <meta name="author" content="About the author">
   <link rel="stylesheet" href="../CSS/Diss.css">
   <script src="../Scripts/startCounter.js"></script>
@@ -62,7 +62,7 @@ foreach ($eventTypes as $eventType) {
             <div aria-label="Home">
                 <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
                 </div>
-                <h2 class="white">Match That Number Arithmetic Edition Statistic</h2>                    
+                <h2 class="white">Guess That Number Meduim Edition Statistic</h2>                    
             </header> 
 
             <main class="greentopline">
@@ -73,32 +73,19 @@ foreach ($eventTypes as $eventType) {
          foreach ($eventTypes as $eventType) {
              echo "<th>" . htmlspecialchars($eventType) . "</th>";
          }
-         echo "<th>Match Ratio</th>";
          echo "</tr></thead>";
          echo "<tbody><tr>";
          foreach ($latestValues as $value) {
              echo "<td>" . htmlspecialchars($value) . "</td>";
          }
-         if ($latestValues['Incorrect Matches Made'] == 0) {
-            // Handle division by zero
-            if ($latestValues['Correct Matches Made'] > 0) {
-                $mainRatio = "Perfect game!";
-            } else {
-                $mainRatio = "No matches made";
-            }
-        } else {
-            $ratio = $latestValues['Correct Matches Made'] / $latestValues['Incorrect Matches Made'];
-            $mainRatio = number_format($ratio, 2, '.', '');
-        }
-        echo "<td>" . htmlspecialchars($mainRatio) . "</td>"; // Make sure to escape output with htmlspecialchars        
          echo "</tr></tbody>";
          echo "</table>";
         
         
         ?>
             </main>   
-
-            <h3><a href="matchThatNumberArithmeticEdition.html">Return to game</a></h3>
+            
+            <h3><a href="guessThatNumberNormalEdition.html">Return to game</a></h3>
     
        </div>
 

@@ -58,8 +58,8 @@ $username = $_SESSION["username"];
     <nav>
         <div class="bar">
             <ul class="outlined-text">
-            <li><a href="Sample Game.php">Games</a></li>
-            <li> <a href="contactus.php">Contacts</a></li>
+            <li><a href="gamesPage.php">Games</a></li>
+            <li> <a href="contactUs.php">Contacts</a></li>
             <li> <a href="Accessibility.php">Accessibility</a></li>
             <li> <a href="logout.php">Log Out</a></li>
             </ul>
@@ -106,6 +106,9 @@ if so click on here to access the <a href="Parental_Control.php">Parental Contro
             </ul>
         </div>
         
+        <div class="Top">
+                <h3><a href="#top">Top of Page</a></h3>
+                </div>
               
     </main>
 

@@ -2,9 +2,9 @@
 
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
 
-// Example values for Game_ID and Event_Type
-$game_id = 5; // Assuming a Game_ID of 1 for demonstration
-$eventType = 'Score'; // Assuming you're looking for the "Score" event type
+
+$game_id = 5; 
+$eventType = 'Score'; 
 
 // Prepare the SQL statement
 // Assuming you're fetching events for a specific game
@@ -66,7 +66,7 @@ foreach ($eventTypes as $eventType) {
             </header> 
 
             <main class="greentopline">
-                <h4>Write some texts</h4>
+                <h4>Check out how well you performed below!</h4>
          <?php 
          echo "<table>";
          echo "<thead><tr>";
@@ -85,6 +85,7 @@ foreach ($eventTypes as $eventType) {
         ?>
             </main>   
             
+            <h3><a href="guessThatNumberNegativeEdition.html">Return to game</a></h3>
     
        </div>
 

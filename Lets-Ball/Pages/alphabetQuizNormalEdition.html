@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet Quiz</title>
+    <link rel="stylesheet" href="../CSS/Diss.css">
+</head>
+<body>
+    <div class="semi-transparent-background">
+        <div class="outlined-text">
+
+            <header>
+      
+                <div aria-label="Home">
+                <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+                </div>
+                  
+                <h1 class="white">Letter Game</h1>
+                <h3>Recommendation: Nursery (ages 3-4) to Reception (ages 4-5).</h3>
+              </header>
+            
+              <div class="game greentopline">
+                <div class="normaltext white">
+            </div>
+            </div>
+            <div class="instructions">
+            <p id="score-container">Score: 0</p>
+            <div id="quiz-container"></div>
+            <div id="input-container">
+                <div class="normaltext">
+                <label for="user-input">Type the letter you see:</label>
+                </div>
+                <input type="text" id="user-input" maxlength="1" disabled>
+            </div>
+            <div class="normaltext">
+            <p id="timer-container"></p>
+            <div>                
+            <p id="message-container"></p>                 
+            <button id="playButton">Start</button>
+            
+            <h3 class="white underline">Instructions</h3>
+            <ul class="normaltext">
+                <li>When you see a letter, type it in!</li>
+                <li>After typing, it gets ready for the next letter.</li>
+                <li>Keep going until we say 'Yay!'</li>
+                <li>You have 20 seconds to type a letter</li>
+                <li>And think before you type!</li>
+            </ul>
+            <h3><a href="alphabetQuizLetterStats.php">Game over? Check how you did over here!</a></h3>
+            </div>
+
+            <script src="../Scripts/alphabetQuizNormalEdition.js"></script>
+        </div>
+    </div>
+</body>
+</html>

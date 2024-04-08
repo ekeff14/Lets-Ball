@@ -67,7 +67,7 @@ foreach ($eventTypes as $eventType) {
 
             <main class="greentopline">
 
-            <h4>Write some texts</h4>
+            <h4>Check out how well you performed below!</h4>
          <?php 
 
          echo "<table>";
@@ -84,11 +84,10 @@ foreach ($eventTypes as $eventType) {
          echo "</table>";
         
         
-        ?>
-        
-
+        ?>        
             </main>   
             
+            <h3><a href="countThatNumberEasyEdition.html">Return to game</a></h3>
     
        </div>
 

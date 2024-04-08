@@ -43,7 +43,7 @@ foreach ($eventTypes as $eventType) {
 
     <head>
   <meta charset="utf-8">
-  <title>Guess That Number Random Edition Statistic</title>
+  <title>Alphabet Quiz Sentence Edition Statistic</title>
   <meta name="author" content="About the author">
   <link rel="stylesheet" href="../CSS/Diss.css">
   <script src="../Scripts/startCounter.js"></script>
@@ -65,7 +65,7 @@ foreach ($eventTypes as $eventType) {
             </header> 
 
             <main class="greentopline">
-                <h4>Write some texts</h4>
+                <h4>Check out how good you performed below!</h4>
          <?php 
          echo "<table>";
          echo "<thead><tr>";
@@ -82,6 +82,8 @@ foreach ($eventTypes as $eventType) {
         
         
         ?>
+
+        <h3><a href="alphabetQuizSentenceEdition.html">Return to game</a></h3>
             </main>   
             
     

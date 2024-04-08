@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match that Number</title>
+    <link rel="stylesheet" href="../CSS/Diss.css">
+    <style>
+        /*specific css code*/
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #playButton, #timer-container{
+            display:block; /* Show elements when needed */
+        }
+        #buttons-container button {
+            display: none; /* Hide buttons initially */
+        }
+        #mainTimer, #corrections-container {
+            font-weight: bold;
+            display: block; /* Ensure these are always visible */
+        }
+        #timer, #matches-made-container {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="semi-transparent-background">
+        <div class="outlined-text normaltext">
+
+            <header>
+      
+                <div aria-label="Home">
+                <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+                </div>
+                  
+                <h1 class="white">Match that Number</h1>
+                <h3>Recommendation: Year 1 (ages 5-6) to Year 2 (ages 6-7)</h3>
+              </header>
+    
+    <div class="greentopline" id="mainTimer">300 seconds</div> 
+    <div class="CTNinstructions">
+    <p id="matches-made-container">Matches Made: 0</p>   
+    <div id="timer-container">30 seconds</div>
+    <div>
+        <p>Match the number: <span id="targetNumber"></span></p>
+    </div>
+    <div id="buttons-container">
+        <!-- Buttons for numbers 1 to 100 will be added here dynamically -->
+    </div>
+    <p id="result"></p>
+    <button id="playButton" onclick="startGame()">Start Game</button>
+
+    <div id="corrections-container" style="display:none;">
+        <h2>Corrections:</h2>
+    </div>    
+    
+        <h2>How to Play:</h2>
+        <p>🌟 When you see a number written in words, find and click the matching number button.</p>
+        <p>🌈 You have <strong>30 seconds</strong> to make each match. If time runs out, we'll show you a new number!</p>
+        <p>💫 Try to make as many matches as you can before the <strong>300 seconds</strong> timer at the top reaches zero.</p>
+        <p>🎉 Each time you make a correct match, you'll earn a point in <strong>Matches Made</strong>.</p>
+        <p>❤️ Have fun and let's see how many matches you can make!</p>
+        <p>🚀 Click <strong>Start Game</strong> to begin your adventure!</p>
+        <h3><a href="matchThatNumberStats.php">Game over? Check how you did over here!</a></h3>    
+    </div>
+    
+    <script src="../Scripts/matchThatNumber.js"></script>
+
+    </div>
+    </div>
+</body>
+</html>

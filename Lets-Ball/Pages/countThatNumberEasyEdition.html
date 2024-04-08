@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counting Game</title>
+    <link rel="stylesheet" href="../CSS/Diss.css">
+</head>
+<body>
+    <div class="semi-transparent-background">
+        <div class="outlined-text">
+
+            <header>
+      
+                <div aria-label="Home">
+                <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+                </div>
+                  
+                <h1 class="white">Counting Game: First Edition</h1>
+                <h3>Recommendation: Nursery (ages 3-4) to Year 1 (ages 5-6)</h3>
+              
+              </header>
+              
+              <div class="greentopline">
+    <button id="playButton">Play</button>
+        </div>
+
+        <div class="CTNinstructions normaltext">
+    <button id="helpButton" disabled>Help (5)</button> <!-- Help button with usage count -->
+    <div id="number-container"></div>
+
+    <p id="result"></p>
+    <p id="timer"></p>
+    <p id="helpText"></p> <!-- Display help message here -->
+    <p id="streakCounter">Streak: 0</p>
+    <div id="corrections"></div> <!-- Corrections will be displayed here -->
+
+    
+        <h2 class="white underline">How to Play</h2>
+        <ol>
+            <li>Tap the big <strong>Play</strong> button to begin your adventure.</li>
+            <li>Numbers will appear on the screen in a random order.</li>
+            <li>Starting with the tiniest number, touch each one in order from smallest to biggest.</li>
+            <li>If you touch the wrong number, 3 seconds will be removed from your time.</li>
+            <li>Keep tapping the numbers in order until they are all gone or the time reaches <strong>0</strong>.</li>
+            <li>Touch the <strong>Help</strong> button to assist you if you are stuck, but be careful you only have 5 times to use it.</li>
+            <li>You have 200 seconds to sort out the numbers</li>
+            <li>Try to complete the game as quickly as possible!</li>
+            <h3><a href="countThatNumberFirstStats.php">Game over? Check how you did over here!</a></h3>
+        </ol>
+    </div>
+    </div>
+
+    <script src="../Scripts/countThatNumberEasyEdition.js"></script>
+
+    </div>
+    </div>
+</body>
+</html>

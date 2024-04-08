@@ -44,8 +44,8 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
                         <div class="bar">
                             <ul class="outlined-text">
                             <li><a href="Index.php">Homepage</a></li>
-                            <li> <a href="Sample Game.php">Games</a></li>
-                            <li> <a href="contactus.php">Contacts</a></li>
+                            <li> <a href="gamesPage.php">Games</a></li>
+                            <li> <a href="contactUs.php">Contacts</a></li>
                             <li> <a href="logout.php">Log Out</a></li>
                             </ul>
                         </div>
@@ -121,9 +121,9 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
         </table>  
             </div>
                       
-                     
-                </p>
-                <p><a href="#top">^</a></p> 
+            <div class="Top">
+                <h3><a href="#top">Top of Page</a></h3>
+                </div>
 
                 <footer class="topline">
                     <div class="outlined-text">

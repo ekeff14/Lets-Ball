@@ -66,7 +66,7 @@ foreach ($eventTypes as $eventType) {
             </header> 
 
             <main class="greentopline">
-                <h4>Write some texts</h4>
+                <h4>Check out how well you performed below!</h4>
          <?php 
          echo "<table>";
          echo "<thead><tr>";
@@ -79,9 +79,18 @@ foreach ($eventTypes as $eventType) {
          foreach ($latestValues as $value) {
              echo "<td>" . htmlspecialchars($value) . "</td>";
          }
-            $ratio = $latestValues['Correct Matches Made']/$latestValues['Incorrect Matches Made'];
-            $mainRatio = number_format($ratio, 2, '.', '');    
-         echo "<td>" .$mainRatio. "</td>";
+         if ($latestValues['Incorrect Matches Made'] == 0) {
+            // Handle division by zero
+            if ($latestValues['Correct Matches Made'] > 0) {
+                $mainRatio = "Perfect game!";
+            } else {
+                $mainRatio = "No matches made";
+            }
+        } else {
+            $ratio = $latestValues['Correct Matches Made'] / $latestValues['Incorrect Matches Made'];
+            $mainRatio = number_format($ratio, 2, '.', '');
+        }
+        echo "<td>" . htmlspecialchars($mainRatio) . "</td>"; // Make sure to escape output with htmlspecialchars        
          echo "</tr></tbody>";
          echo "</table>";
         
@@ -89,7 +98,8 @@ foreach ($eventTypes as $eventType) {
         ?>
             </main>   
             
-    
+            <h3><a href="matchThatNumberNormalEdition.html">Return to game</a></h3>
+
        </div>
 
        <footer>

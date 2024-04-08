@@ -404,6 +404,19 @@ button{
     border-right: 0.4vw solid red;
 }
 
+.Top{
+    
+    max-width: max-content;
+    max-height: max-content;
+    min-width: min-content;
+    min-height: min-content;
+    margin: auto;
+}
+
+#score-container, #streakCounter, #matches-made-container {
+    display: none;
+  }
+
 .underline{
     text-decoration: underline;
 }
@@ -418,6 +431,11 @@ h3{
     font-size: 1.5vw;
     font-family: cursive;
 }
+
+#message-container {    
+    font-size: 1.5vw;
+    font-family: cursive;
+  }
 
 p{
     font-size: 1.4vw;
@@ -503,9 +521,6 @@ table{
     border-radius: 1vw;
     margin: auto;
 }
-
-/* In your external stylesheet file, e.g., style.css */
-
 
 th, td {
     border: 0.2vw solid blue; /* This adds the border to each individual cell */
