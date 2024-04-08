@@ -3,6 +3,8 @@
 Lets Ball is a child friendly educational gaming website aimed for children still developing their alphabetic and numeric skills.
 
 Please note: The website is hosted with a local server called Xampp, to test with full functionality you must download and install Xampp and activate the Apache and MySQL modules in the Xampp control panel.
+Link to download Xampp version 8.2.12 / PHP 8.2.12: https://www.apachefriends.org/download.html
+
 Steps by step guide:
 
 1. Download and Install Xampp from the installer provided in the repository.
