@@ -14,3 +14,5 @@ Steps by step guide:
 5. At this stage you have now accessed the login file and should click the signup link to make a new account and explore the website.
 
 Lastly please note that this website is still under further development and undergoes regular maintenance so remember to git pull regularly.
+
+If you encounter any issue during the setup email me with jackjeff367@gmail.com

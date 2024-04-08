@@ -1,5 +1,4 @@
 img{
-    
     width: 30%;
     border-radius: 1vw;
     border: 0.4vw solid red;
@@ -72,7 +71,7 @@ img{
 .login-container {
     justify-content: center;
     align-items: center;
-    text-align: center; /* Center the text inside the container */
+    text-align: center; 
     border: 0.5vw solid green;
     border-radius: 1vw;
     max-width: max-content;
@@ -106,25 +105,22 @@ body {
 
 footer {
     text-align: center;
-    /* Additional footer styling */
 }
 
 .social-media a {
     display: inline-block;
     margin: auto;
     text-decoration: none;
-    color: inherit; /* or any color you prefer */
+    color: inherit;
 }
 
 .social-media img {
     vertical-align: middle;
-    width: 8%; /* Adjust size as needed */
+    width: 8%; 
     height: auto;
     margin:auto;
     
 }
-
-/*games styling begins here*/
 
 #playButton{
     margin: auto;
@@ -135,8 +131,8 @@ footer {
     height: auto; /* Keep the aspect ratio of the image */
     border: 0.4vw solid red;
     border-radius: 1vw;
-    margin-left: -40%; 
-    margin-top: 40%;
+    margin-left: -10%; 
+    margin-top: 10%;
     max-width: 100%;
 }
 
@@ -145,8 +141,9 @@ footer {
     height: auto; /* Keep the aspect ratio of the image */
     border: 0.4vw solid green;
     border-radius: 1vw;
-    margin-left: -40%; 
-    margin-top: 40%;
+    margin-left: -10%; 
+    margin-top: 10%;
+    max-width: 100%;
 }
 
 #minigameimg3 {
@@ -154,13 +151,15 @@ footer {
     height: auto; /* Keep the aspect ratio of the image */
     border: 0.4vw solid blue;
     border-radius: 1vw;
-    margin-left: -40%; 
-    margin-top: 40%;
+    margin-left: -10%; 
+    margin-top: 10%;
+    max-width: 100%;
 }
 
 #gameimg1{
     width: 30%;
     height: 30%;
+    margin-top: 2.5vw;
     border: 0.4vw solid green;
     border-radius: 1vw;
 }
@@ -170,6 +169,7 @@ footer {
     height: 30%;
     border: 0.4vw solid blue;
     border-radius: 1vw;
+    margin-top: 2.5vw;
 }
 
 #gameimg3{
@@ -177,6 +177,7 @@ footer {
     height: 30%;
     border: 0.4vw solid red;
     border-radius: 1vw;
+    margin-top: 2.5vw;
 }
 
 
@@ -217,7 +218,7 @@ button {
 }
 #streakCounter {
     font-size: 2vw;
-    margin-top: auto; /* Space above the streak counter */
+    margin-top: auto; 
 }
 /*CTN game ends*/
 
@@ -251,22 +252,22 @@ button {
 .outlined-text {
     color: white;
     text-shadow: 
-        -1.5px -1.5px 0 #000,  
-         1.5px -1.5px 0 #000,
-        -1.5px  1.5px 0 #000,
-         1.5px  1.5px 0 #000;
+    -0.08vw -0.08vw 0 #000,
+    0.08vw -0.08vw 0 #000,
+    -0.08vw 0.08vw 0 #000,
+    0.08vw 0.08vw 0 #000;        
 }
 
 .drop-shadow-text {
     color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0.1vw 0.1vw 0.2vw rgba(0, 0, 0, 0.5);
 }
 
 .semi-transparent-background {
     background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
     color: white;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 1.5vw;
+    border-radius: 5vw;
 }
 
 .bar ul li a {
@@ -276,7 +277,7 @@ button {
 .bar a{
 text-decoration: overline;
     display: block;
-    padding: 25px 20px;
+    padding: 2.3vw 2.0vw;
     font-size: 2.5vw;
     font-weight: bold;
     text-align: center;
@@ -293,20 +294,18 @@ text-decoration: overline;
 }
 
 #number-container {
-    width: 100%; /* Adjust to match the width of the red border container */
-    height: auto; /* Adjust based on your preference */
-    margin: auto; /* Center the container if needed */
-    flex-wrap: wrap; /* Wrap items to the next line if they can't fit */
-    overflow: auto; /* Add a scrollbar if the content overflows */
-    box-sizing: border-box; /* Include padding and border in the element's width and height */
+    width: 100%; 
+    height: auto; 
+    margin: auto; 
+    flex-wrap: wrap; 
+    overflow: auto; 
+    box-sizing: border-box; 
   }  
 
 h1{
     color: white;
     font-family: cursive;
     font-size: 7vw;
-    margin: 5px;
-    padding: 15px 10px 25px 8px;
     text-align: center;
 }
 
@@ -321,87 +320,77 @@ button{
     margin: auto;
 }
 
-.topline{
-    margin: 20px 0;
+.topline{    
     border-top: 0.4vw solid;
     border-color: red;
 }
 
 .greentopline{
-    margin: 20px 0;
     border-top: 0.4vw solid;
     border-color: green;
 }
 
-.bluetopline{
-    margin: 20px 0;
+.bluetopline{    
     border-top: 0.4vw solid;
     border-color: blue;
 }
 
 .gamebox {
     width: 60%;
-    height: auto; /* Adjust height to auto */
+    height: auto; 
     display: block; /* Use block to stack elements */
-    margin: 20px auto; /* Center the game box */
-    border-radius: 100px;
-    padding: 20px; /* Add some padding */
-    box-sizing: border-box; /* Include padding and border in the element's width and height */
+    margin: auto; 
+    box-sizing: border-box;
 }
 
 .minitopline1 {
-    width: 100%; /* Take the full width of the gamebox */
-    margin: 10px 0; /* Add some margin at the top and bottom */
-    text-align: center; /* Center text if needed */
+    width: 100%;
+    margin: 2.5vw; 
+    text-align: center; 
     display:flex;
     border-top: 0.4vw solid;
     border-color: green;
-    margin: 10px 0;
 }
 
 .minitopline2 {
-    width: 100%; /* Take the full width of the gamebox */
-    margin: 10px 0; /* Add some margin at the top and bottom */
-    text-align: center; /* Center text if needed */
+    width: 100%; 
+    margin: 2.5vw; 
+    text-align: center;
     display:flex;
     border-top: 0.4vw solid;
     border-color: blue;
-    margin: 10px 0;
 }
 
 .minitopline3 {
-    width: 100%; /* Take the full width of the gamebox */
-    margin: 10px 0; /* Add some margin at the top and bottom */
-    text-align: center; /* Center text if needed */
+    width: 100%; 
+    margin: 2.5vw; 
+    text-align: center;
     display:flex;
     border-top: 0.4vw solid;
     border-color: red;
-    margin: 10px 0;
 }
 
 .game{
-    /*border: 5px solid red;*/
     width: 70%;
-    margin: auto;
-    
+    margin: auto;    
 }
 
 .CTNinstructions{    /*count that number game css*/
-    border-radius: 10px;
+    border-radius: 4.8vw;
     width: 50%;
     margin: auto;
     border-bottom: 0.4vw solid red;
-    border-left: 0.4vw solid red;
-    border-right: 0.4vw solid red;
+    border-left: 0.4vw solid blue;
+    border-right: 0.4vw solid green;
 }
 
-.instructions{    
-    border-radius: 10px;
-    width: 30%;
+.instructions{    /*other games css*/
+    border-radius:4.8vw;
+    width: 35%;
     margin: auto;
-    border-bottom: 0.4vw solid red;
+    border-bottom: 0.4vw solid green;
     border-left: 0.4vw solid red;
-    border-right: 0.4vw solid red;
+    border-right: 0.4vw solid blue;
 }
 
 .Top{
@@ -442,7 +431,7 @@ p{
 }
 
 .line{
-    border: 5px solid red;
+    border: 0.4vw solid red;
     border-bottom-width: medium;
     border-left-width: inherit;    
     border-right-width: inherit;
@@ -488,7 +477,6 @@ table{
     text-align: center;
 }
 
-/*css for form starts here*/
 .form{
     border:0.4vw solid red;
     max-width: max-content;
@@ -549,6 +537,4 @@ button {
     transform: scale(1.05); /* Slightly increase button size */
   }
   
-
-/*css for form ends here*/
 
