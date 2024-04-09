@@ -1,6 +1,6 @@
 <?php
 session_start();
-//for parental control logout feature
+// Include the 'end_session.php' to handle session expiration and parental control timer feature, check index page for more in dept comments
 include 'end_session.php';
 $userId = $_SESSION['userId'];
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");

@@ -1,12 +1,11 @@
 <?php
-// session_start();
 
-// //Function to check if the session has expired and log the user out
+//Function to check if the session has expired and log the user is logged out
 function checkSession() {
 
     $conn = mysqli_connect("127.0.0.1:8111", "root", "", "lets_ball_database");
 
-    // Ensure connection is successful
+    // Ensure connection is successful else exit
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
@@ -19,7 +18,7 @@ function checkSession() {
     if ($result && $row = mysqli_fetch_assoc($result)) {
         $sessionAllowedtim = $row['allowed_time'] * 3600;
     } else {
-        // Fallback allowed time
+        // Fallback allowed time for the user to use the website
         $sessionAllowedtim = 1 * 3600;
     }
 
@@ -51,16 +50,18 @@ function checkSession() {
 
 
 function storeExpirationTimestamp($userId, $conn) {
-    
+    //Query the database for the allowed time for the current day and user logged in    
     $query = "SELECT allowed_time FROM userlimit WHERE date = CURDATE() AND userid = '$userId'";
     $result = mysqli_query($conn, $query);
-//     mysqli_close($conn); // Close the connection after fetching data
 
-    if ($result && $row = mysqli_fetch_assoc($result)) {
+    // If the query was successful and a row was found then calculate the expiration timestamp which is the current time plus the allowed time in seconds
+    if ($result && $row = mysqli_fetch_assoc($result)) {        
         $sessionAllowedTime = $row['allowed_time'] * 3600;
     $expirationTimestamp = time() + $sessionAllowedTime;
+    //Update the userlimit table with the new expiration timestamp calculated for the user
     $sql = "UPDATE userlimit SET time_spent = '$expirationTimestamp' WHERE date = CURDATE() AND userid = '$userId'";
     $result = mysqli_query($conn, $sql);
+    //If the update query was successful alert the user of the status
     if($result){
         echo 'Successful';
     }
@@ -68,11 +69,12 @@ function storeExpirationTimestamp($userId, $conn) {
 }
 
 
-function getRemainingSessionTime($userId, $conn) {
-    $sql = "SELECT time_spent FROM userlimit WHERE userid = '$userId' AND date = CURDATE()";
-    $result = mysqli_query($conn, $sql);
+function getRemainingSessionTime($userId, $conn) {    
+    $sql = "SELECT time_spent FROM userlimit WHERE userid = '$userId' AND date = CURDATE()"; //SQL query to get the 'time_spent' value from 'userlimit' table for the logged in user and current date
+    $result = mysqli_query($conn, $sql);//Execute the query
     mysqli_close($conn); // Close the connection after fetching data
-    $row = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_assoc($result); //Fetch the result row as an associative array
+    // If a row is returned, get the 'time_spent', current time and calculate the time left until expiration then return the time left if it is greater than 0 else return 0
     if ($row) {
         $expirationTimestamp = $row['time_spent'];
         $currentTime = time();
@@ -81,5 +83,6 @@ function getRemainingSessionTime($userId, $conn) {
     }
     return null; // Return null to indicate no data found
 }
+
 
 

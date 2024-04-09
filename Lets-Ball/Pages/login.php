@@ -6,6 +6,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="../CSS/Diss.css">
     <style>
+        /*specific css*/
         body {
             /* Set the background image */
             background-image: url('../CSS/Images/logo.png');
@@ -22,26 +23,20 @@
     </style>
 </head>
 <body>
-    <div class="outlined-text">
+    <div class="outlined-text semi-transparent-background">
 
-    <header>
-        <div class="semi-transparent-background">
+    <header>        
         <img src="../CSS/Images/logo.png" alt="Site Logo">
-        <h1 class="white">Lets Log In!</h1>
-    </div>
+        <h1 class="white">Lets Log In!</h1>    
     </header>
-
-    <div class="semi-transparent-background">
-    <div class="login-container">
-        
+    
+    <div class="login-container">        
         <h3 class="white">Welcome to Let's Ball! 🎈
-
-            Dive into a world of fun and games! Log in below to join the adventure.
-            
+            Dive into a world of fun and games! Log in below to join the adventure.            
             Happy gaming! 🎉
         </h3>
-        <form action = "" method = "POST">
-            <div class="boxed">
+        <div class="boxed">
+        <form action = "" method = "POST">            
             <label for="Email">Email:</label><br>
             <input type="text" id="Email" name="email" required><br>
 
@@ -50,10 +45,9 @@
 
             <button type="submit" name = "submit">Login</button><br>
         </form>
-        <p class="signup-link">Don't have an account? <a href="signup.php">Sign Up</a></p>
-        <!--<p class="forgot-password-link"><a href="forgotpassword.php">Forgot Password?</a></p>-->
-    </div>
-    </div>
+        <p class="signup-link">Don't have an account? <a href="signup.php">Sign Up</a></p>     
+        </div>   
+    </div>    
 
     <footer>
         <div class="outlined-text">
@@ -72,74 +66,51 @@
 </html>
 
 <?php
-session_start();
-include 'end_session.php';
-$conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
-if(isset($_POST['submit'])){
+session_start(); // Start or resume the current session
+include 'end_session.php'; // Include the script that handles session timeout
+$conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database"); // Connect to the database
+
+// Confirms login form submition
+if(isset($_POST['submit'])){ 
+    // gets submitted email and password
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    // SQL query to selectdetails from 'users' table
     $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
 
-
+// Confirms user was found
     if ($row) {
         session_start(); // Ensure session is started
+
+        //Set logged-in user session variables 
         $_SESSION['id'] = session_id();
         $_SESSION['username'] = $row['firstname'];
         $_SESSION['userId'] = $row['id'];
+
+        // finds user's ID and checks remaining session time
         $userId = $_SESSION['userId'];
         $remainingTime = getRemainingSessionTime($userId, $conn);
     
+        // Checks for remaining session time
         if ($remainingTime !== null && $remainingTime > 0) {
             $_SESSION['start_time'] = time();
             $_SESSION['expire_time'] = $_SESSION['start_time'] + $remainingTime;
             
-            // Use session or a client-side script for success message
+            // Redirect to the index page
             header("Location: index.php");
-            exit;
-        } else {
-            // Consider what should happen if no remaining time or login is fresh
-            // This might include setting up a new session start/expiry
-            checkSession(); 
-            header("Location: index.php"); // Adjust as needed
+            exit; //terminate the execution of the script
+        } else {                        
+            checkSession();  //check and handle session if login fails
+            header("Location: index.php"); 
             exit;
         }
+        // if user details are incorrect
     } else {
-        echo "<script>alert('Invalid Email or Password');</script>";
-        // Make sure this script block doesn't immediately follow with a PHP header redirect
-    }
-    
-
-
-    // if($row){
-    //     $_SESSION['id'] = session_id();
-    //     $_SESSION['username'] = $row['firstname'];
-    //     $_SESSION['userId'] = $row['id'];
-    //     $userId = $_SESSION['userId'];
-    //     $remainingTime = getRemainingSessionTime($userId, $conn);
-    //     if($remainingTime !== null){
-    //         if($remainingTime > 0){
-    //             $_SESSION['start_time'] = time();
-    //             $_SESSION['expire_time'] = $_SESSION['start_time'] + $remainingTime;
-    //             echo "<script>alert('Login Successful')</script>";
-    //             header("location: index.php");
-    //         }else{
-    //     checkSession();       
-    //     $_SESSION['id'] = session_id();
-    //     $_SESSION['username'] = $row['firstname'];
-    //     $_SESSION['userId'] = $row['id'];
-    //     echo "<script>alert('Login Successful')</script>";
-    //     header("location: index.php");
-    //         }
-    //     }
-    // }else{
-    //     echo "<script>alert('Invalid Email or Password ')</script>";
-    // }
-
-
-    
+        echo "<script>alert('Invalid Email or Password');</script>";        
+    }    
 }
 
 ?>

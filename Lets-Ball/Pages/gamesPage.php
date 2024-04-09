@@ -1,27 +1,17 @@
 <?php
-// Make sure session_start() is called at the beginning of the end_session.php file or here before any session variable is accessed
+//Start or resume current session
 session_start();
-
+//Include end_session.php for parental control timer function
 include 'end_session.php';
-
-// Now, run the checkSession to manage session validity
+//calls check session function
 checkSession();
-
-// After checking session, you can safely access session variables
+//Checks if session has a stored username else redirect to login
 if (!isset($_SESSION["username"])) {
-    // If username not set in the session, redirect to login page
     header("Location: login.php");
-    exit; // Don't forget to exit after header redirects to stop script execution
+    exit;  //Terminate the script
 }
-
-// If the script continues past this point, it means the user is logged in and the session is valid
-$username = $_SESSION["username"];
-
-// Your authenticated user's logic here
-
+$username = $_SESSION["username"];//Get username
 ?>
-
-
 
 <!DOCTYPE html>
 <html>

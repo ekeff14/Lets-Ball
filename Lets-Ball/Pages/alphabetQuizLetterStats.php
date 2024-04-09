@@ -1,37 +1,38 @@
 <?php
-
+//Establish database connection
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
 
+//Sets game ID and event type for query
 $game_id = 9;
 $eventType = 'Score'; 
 
-// Prepare the SQL statement
-// Assuming you're fetching events for a specific game
-
-// SQL template for fetching the latest entry of a specific event type for a game
+//SQL template to get the most recent value of a specified event type
 $sqlTemplate = "SELECT Event_Value FROM event 
                 WHERE Game_ID = ? AND Event_Type = ?
                 ORDER BY Event_ID DESC 
                 LIMIT 1";
 
+//identifies desired event types
 $eventTypes = ['Correct Answer', 'Wrong Answer'];
-$latestValues = [];
+$latestValues = [];// array to store the latest value of each event type
 
+//Loops through each event type and gets the latest value
 foreach ($eventTypes as $eventType) {
-    if ($stmt = $conn->prepare($sqlTemplate)) {
-        $stmt->bind_param("is", $game_id, $eventType);
-        $stmt->execute();
-        $result = $stmt->get_result();
+    if ($stmt = $conn->prepare($sqlTemplate)) { //makes an SQL statement        
+        $stmt->bind_param("is", $game_id, $eventType); //Binds event type and game ID to the SQL statement
+        $stmt->execute(); //Execute the SQL statement
+        $result = $stmt->get_result(); //gets the result
+
+        //Gets the related row as an associative array.
         if ($row = $result->fetch_assoc()) {
-            $latestValues[$eventType] = $row['Event_Value'];
-        } else {
-            // No entry found for this event type
-            $latestValues[$eventType] = 'N/A';
+            $latestValues[$eventType] = $row['Event_Value']; //Store the value in the array with the event type as the key if a row is found
+        } else {            
+            $latestValues[$eventType] = 'N/A'; //No entry found for this event type
         }
-        $stmt->close();
+        $stmt->close(); //statement Closed
     } else {
-        echo "Error preparing statement: " . $conn->error;
-        // Handle error appropriately
+        echo "Error preparing statement: " . $conn->error;//output an error message if SQL statement cant be made
+        
     }
 }
 
@@ -44,7 +45,7 @@ foreach ($eventTypes as $eventType) {
     <head>
   <meta charset="utf-8">
   <title>Alphabet Quiz Letter Edition Statistic</title>
-  <meta name="author" content="About the author">
+  <meta name="author" content="stats">
   <link rel="stylesheet" href="../CSS/Diss.css">
   <script src="../Scripts/startCounter.js"></script>
 </head>
@@ -67,14 +68,17 @@ foreach ($eventTypes as $eventType) {
             <main class="greentopline">
                 <h4>Check out how good you performed below!</h4>
          <?php 
-         echo "<table>";
+         //display the values of the stats in a table format
+         echo "<table>"; //HTML table output
          echo "<thead><tr>";
-         foreach ($eventTypes as $eventType) {
-             echo "<th>" . htmlspecialchars($eventType) . "</th>";
+         foreach ($eventTypes as $eventType) {//Loop through each event type and create a table header
+             echo "<th>" . htmlspecialchars($eventType) . "</th>"; //Uses htmlspecialchars
          }
-         echo "</tr></thead>";
-         echo "<tbody><tr>";
-         foreach ($latestValues as $value) {
+         echo "</tr></thead>";//Close table header row
+         echo "<tbody><tr>";//Begin table body
+
+         //Loop through each latest value and create a table cell
+         foreach ($latestValues as $value) { 
              echo "<td>" . htmlspecialchars($value) . "</td>";
          }
          echo "</tr></tbody>";

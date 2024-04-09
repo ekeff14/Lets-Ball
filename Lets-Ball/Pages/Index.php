@@ -1,33 +1,30 @@
 <?php
-// Make sure session_start() is called at the beginning of the end_session.php file or here before any session variable is accessed
+// Start the session to track user state
 session_start();
 
-//for logoun feature
+// Include the 'end_session.php' to handle session expiration and parental control timer feature
 include 'end_session.php';
-$userId = $_SESSION['userId'];
-$conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
-        $remainingTime = getRemainingSessionTime($userId, $conn);
+$userId = $_SESSION['userId']; // get user's ID to identify the current user
+$conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database"); // confirm database connection
+        $remainingTime = getRemainingSessionTime($userId, $conn); // Get remaining session time
     
+        // Check if time is left in the session
         if ($remainingTime !== null && $remainingTime > 0) {
-            $_SESSION['start_time'] = time();
-            $_SESSION['expire_time'] = $_SESSION['start_time'] + $remainingTime;
+            $_SESSION['start_time'] = time(); //If time is left set session start time to the current time
+            $_SESSION['expire_time'] = $_SESSION['start_time'] + $remainingTime;//Calculate and set the session expiry time based on the remaining time
         }else{
-checkSession(); 
+            checkSession();  //check the current session status if time has finished
         }
-//ends here
 
-
-// After checking session, you can safely access session variables
-if (!isset($_SESSION["username"])) {
-    // If username not set in the session, redirect to login page
+//If the username is not set in the session redirect to login page
+if (!isset($_SESSION["username"])) {    
     header("Location: login.php");
-    exit; // Don't forget to exit after header redirects to stop script execution
+    exit; //Terminate script
 }
 
-// If the script continues past this point, it means the user is logged in and the session is valid
+//get username
 $username = $_SESSION["username"];
 
-// Your authenticated user's logic here
 ?>
 
 <!doctype html>
@@ -46,13 +43,11 @@ $username = $_SESSION["username"];
         
         <div id="Top"></div>
         
-        <div class="responsive">
+        <div class="responsive semi-transparent-background outlined-text">
                                             
-        <header>
-            <div class="semi-transparent-background">
-        
+        <header>        
             <img src="../CSS/Images/logo.png" alt="Logo">
-                
+
             <?php echo "<h1 class='outlined-text' style='color: white;'>Hey ".$username." LET'S BALL!</h1>"; ?>            
 
     <nav>
@@ -64,14 +59,10 @@ $username = $_SESSION["username"];
             <li> <a href="logout.php">Log Out</a></li>
             </ul>
         </div>
-    </nav>                                   
-
-    </div>
+    </nav>                                       
             
             </header>
-
-            <div class="semi-transparent-background">
-            <div class="outlined-text">
+                        
         
     <main>
                 <p class="topline">
@@ -112,8 +103,7 @@ if so click on here to access the <a href="Parental_Control.php">Parental Contro
               
     </main>
 
-        <footer class="topline">
-        <div class="outlined-text">
+        <footer class="topline">        
         <div class="social-media">
             <a href="https://www.snapchat.com/add/yourusername" target="_blank">
                 <img src="../CSS/Images/snap.jpg" id="socimg1" alt="Snapchat"> @JAE367
@@ -121,12 +111,8 @@ if so click on here to access the <a href="Parental_Control.php">Parental Contro
             <a href="https://www.instagram.com/yourusername" target="_blank">
                 <img src="../CSS/Images/ig.jpg" id="socimg2" alt="Instagram"> @JEA367
             </a><br>
-        </div>
-    </div>
-    </footer>
-        
-    </div>
-            </div>
+        </div>    
+    </footer>                 
         </div>
         
     </body>

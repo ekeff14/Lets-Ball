@@ -1,15 +1,8 @@
 <?php
-
+//connects to the database and retrieves the latest 'First Attempt win', 'Number of Guesses' and 'TimeSpent' event values, then stores them or indicates 'N/A' if not found.
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
-
-
 $game_id = 5; 
 $eventType = 'Score'; 
-
-// Prepare the SQL statement
-// Assuming you're fetching events for a specific game
-
-// SQL template for fetching the latest entry of a specific event type for a game
 $sqlTemplate = "SELECT Event_Value FROM event 
                 WHERE Game_ID = ? AND Event_Type = ?
                 ORDER BY Event_ID DESC 
@@ -26,13 +19,11 @@ foreach ($eventTypes as $eventType) {
         if ($row = $result->fetch_assoc()) {
             $latestValues[$eventType] = $row['Event_Value'];
         } else {
-            // No entry found for this event type
             $latestValues[$eventType] = 'N/A';
         }
         $stmt->close();
     } else {
-        echo "Error preparing statement: " . $conn->error;
-        // Handle error appropriately
+        echo "Error preparing statement: " . $conn->error;        
     }
 }
 
@@ -45,7 +36,7 @@ foreach ($eventTypes as $eventType) {
     <head>
   <meta charset="utf-8">
   <title>Guess That Number Negative Edition Statistic</title>
-  <meta name="author" content="About the author">
+  <meta name="author" content="stats">
   <link rel="stylesheet" href="../CSS/Diss.css">
   <script src="../Scripts/startCounter.js"></script>
 </head>
@@ -68,6 +59,7 @@ foreach ($eventTypes as $eventType) {
             <main class="greentopline">
                 <h4>Check out how well you performed below!</h4>
          <?php 
+         //display the values of the stats in a table format, check alphabetQuizLetterStats.php for more detailed comments
          echo "<table>";
          echo "<thead><tr>";
          foreach ($eventTypes as $eventType) {

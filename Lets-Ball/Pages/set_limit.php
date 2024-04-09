@@ -1,4 +1,5 @@
 <?php
+//Connect to the database
 $conn = mysqli_connect("127.0.0.1:8111", "root", "", "lets_ball_database");
 
 // Check connection
@@ -29,14 +30,15 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO userlimit (userid, date, allowed_time, time_spent) VALUES ('$userId', CURDATE(), '$timer', '$timeSpent')";
     }
 
+    //Update the user of the status of the action
     $stmt = mysqli_query($conn, $sql);
         if ($stmt) {
-            echo "<script>alert('Timer updated successfully.'); window.location.href='Parental_Control.html';</script>";
+            echo "<script>alert('Timer updated successfully.'); window.location.href='Parental_Control.php';</script>";
         } else {
-            echo "<script>alert('Error updating timer.'); window.location.href='Parental_Control.html';</script>";
+            echo "<script>alert('Error updating timer.'); window.location.href='Parental_Control.php';</script>";
         }
     } else {
-        echo "<script>alert('Error preparing statement.'); window.location.href='Parental_Control.html';</script>";
+        echo "<script>alert('Error preparing statement.'); window.location.href='Parental_Control.php';</script>";
     }
 
 ?>

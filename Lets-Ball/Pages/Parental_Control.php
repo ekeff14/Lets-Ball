@@ -1,6 +1,6 @@
 <?php
 session_start();
-//for parental control logout feature
+// Include the 'end_session.php' to handle session expiration and parental control timer feature, check index page for more in dept comments
 include 'end_session.php';
 $userId = $_SESSION['userId'];
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
@@ -22,9 +22,8 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
     <head>
   <meta charset="utf-8">
   <title>Parental Control</title>
-  <meta name="author" content="About the author">
+  <meta name="author" content="parental control">
   <link rel="stylesheet" href="../CSS/Diss.css">
-  <script src="../Scripts/startCounter.js"></script>
 </head>
     
     <body>

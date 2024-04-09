@@ -1,6 +1,6 @@
 <?php
 session_start();
-//for parental control logout feature
+// Include the 'end_session.php' to handle session expiration and parental control timer feature, check index page for more in dept comments
 include 'end_session.php';
 $userId = $_SESSION['userId'];
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
@@ -59,7 +59,7 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
                         to individual needs, whether it be for those who require screen readers, captioning, alternative text, 
                         or other assistive technologies. We believe in making our website easy to navigate and interact with, 
                         so that all visitors can gather information, explore our offerings, and enjoy our site without facing barriers.
-                        <br> Do not hesitate to give us feedback on any missing accessibility features you may need in our form or with any other contact information on the <a href="contactus.html">contact me</a> page.</h3>
+                        <br> Do not hesitate to give us feedback on any missing accessibility features you may need in our form or with any other contact information on the <a href="contactus.php">contactUs</a> page.</h3>
                 </div>             
 
                 <div class="tips2">

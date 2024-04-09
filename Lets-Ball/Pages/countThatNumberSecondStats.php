@@ -1,12 +1,8 @@
 <?php
-
+//connects to the database and retrieves the latest 'Highest Streak', 'Fails' and 'TimeSpent' event values, then stores them or indicates 'N/A' if not found.
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
-
-// Example values for Game_ID and Event_Type
-$game_id = 4; // Assuming a Game_ID of 1 for demonstration
-$eventType = 'Score'; // Assuming you're looking for the "Score" event type
-
-// SQL template for fetching the latest entry of a specific event type for a game
+$game_id = 4; 
+$eventType = 'Score'; 
 $sqlTemplate = "SELECT Event_Value FROM event 
                 WHERE Game_ID = ? AND Event_Type = ?
                 ORDER BY Event_ID DESC 
@@ -22,14 +18,12 @@ foreach ($eventTypes as $eventType) {
         $result = $stmt->get_result();
         if ($row = $result->fetch_assoc()) {
             $latestValues[$eventType] = $row['Event_Value'];
-        } else {
-            // No entry found for this event type
+        } else {            
             $latestValues[$eventType] = 'N/A';
         }
         $stmt->close();
     } else {
-        echo "Error preparing statement: " . $conn->error;
-        // Handle error appropriately
+        echo "Error preparing statement: " . $conn->error;        
     }
 }
 
@@ -41,8 +35,8 @@ foreach ($eventTypes as $eventType) {
 
     <head>
   <meta charset="utf-8">
-  <title>Count That Number First Edition Statistic</title>
-  <meta name="author" content="About the author">
+  <title>Count That Number Second Edition Statistic</title>
+  <meta name="author" content="stats">
   <link rel="stylesheet" href="../CSS/Diss.css">
   <script src="../Scripts/startCounter.js"></script>
 </head>
@@ -59,12 +53,13 @@ foreach ($eventTypes as $eventType) {
             <div aria-label="Home">
                 <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
                 </div>
-                <h2 class="white">Count That Number Meduim Edition Statistic</h2>                    
+                <h2 class="white">Count That Number Second Edition Statistic</h2>                    
             </header> 
 
             <main class="greentopline">
                 <h4>Check out how well you performed below!</h4>
          <?php 
+         //display the values of the stats in a table format, check alphabetQuizLetterStats.php for more detailed comments
          echo "<table>";
          echo "<thead><tr>";
          foreach ($eventTypes as $eventType) {

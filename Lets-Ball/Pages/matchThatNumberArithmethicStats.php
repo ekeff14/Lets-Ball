@@ -1,15 +1,8 @@
 <?php
-
+//connects to the database and retrieves the latest 'Correct Matches Made' and 'Incorrect Matches Made' event values, then stores them or indicates 'N/A' if not found.
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
-
-// Example values for Game_ID and Event_Type
 $game_id = 6; 
-$eventType = 'Score'; // Assuming you're looking for the "Score" event type
-
-// Prepare the SQL statement
-// Assuming you're fetching events for a specific game
-
-// SQL template for fetching the latest entry of a specific event type for a game
+$eventType = 'Score'; 
 $sqlTemplate = "SELECT Event_Value FROM event 
                 WHERE Game_ID = ? AND Event_Type = ?
                 ORDER BY Event_ID DESC 
@@ -25,14 +18,12 @@ foreach ($eventTypes as $eventType) {
         $result = $stmt->get_result();
         if ($row = $result->fetch_assoc()) {
             $latestValues[$eventType] = $row['Event_Value'];
-        } else {
-            // No entry found for this event type
+        } else {            
             $latestValues[$eventType] = 'N/A';
         }
         $stmt->close();
     } else {
-        echo "Error preparing statement: " . $conn->error;
-        // Handle error appropriately
+        echo "Error preparing statement: " . $conn->error;    
     }
 }
 
@@ -45,7 +36,7 @@ foreach ($eventTypes as $eventType) {
     <head>
   <meta charset="utf-8">
   <title>Match That Number Arithmetic Edition Statistic</title>
-  <meta name="author" content="About the author">
+  <meta name="author" content="stats">
   <link rel="stylesheet" href="../CSS/Diss.css">
   <script src="../Scripts/startCounter.js"></script>
 </head>
@@ -68,6 +59,7 @@ foreach ($eventTypes as $eventType) {
             <main class="greentopline">
                 <h4>Check out how well you performed below!</h4>
          <?php 
+         //display the values of the stats in a table format, check alphabetQuizLetterStats.php for more detailed comments
          echo "<table>";
          echo "<thead><tr>";
          foreach ($eventTypes as $eventType) {
@@ -79,8 +71,9 @@ foreach ($eventTypes as $eventType) {
          foreach ($latestValues as $value) {
              echo "<td>" . htmlspecialchars($value) . "</td>";
          }
+         //Handle division by zero when incorrect matches are 0
          if ($latestValues['Incorrect Matches Made'] == 0) {
-            // Handle division by zero
+            
             if ($latestValues['Correct Matches Made'] > 0) {
                 $mainRatio = "Perfect game!";
             } else {
@@ -90,7 +83,7 @@ foreach ($eventTypes as $eventType) {
             $ratio = $latestValues['Correct Matches Made'] / $latestValues['Incorrect Matches Made'];
             $mainRatio = number_format($ratio, 2, '.', '');
         }
-        echo "<td>" . htmlspecialchars($mainRatio) . "</td>"; // Make sure to escape output with htmlspecialchars        
+        echo "<td>" . htmlspecialchars($mainRatio) . "</td>";
          echo "</tr></tbody>";
          echo "</table>";
         

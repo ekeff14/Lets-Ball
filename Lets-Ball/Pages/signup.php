@@ -57,8 +57,6 @@
                 <input type="password" id="confirm-password" name="confirm-password" required><br>
     
                 <button type="submit" name = "submit">Sign Up</button>
-
-                <!--<input type="submit" name="submit" value="Submit"><br>-->
         </form>
         <p class="login-link">Already have an account? <a href="login.php">Log In</a></p>
     </div>
@@ -82,9 +80,9 @@
 </html>
 
 <?php
+//Database connection
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
-
-
+// Checks if the form has been submitted with the sign up details
 if(isset($_POST['submit'])){
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
@@ -93,26 +91,23 @@ if(isset($_POST['submit'])){
         $email = $_POST['email'];
         $password = $_POST['password'];
 
+        //Checks for duplicate email in the users table
         $checkEmail = "SELECT * FROM users WHERE email = '$email'";
         $checkQuery = mysqli_query($conn, $checkEmail);
         $checkResult = mysqli_fetch_array($checkQuery);
-        if($checkResult){
+        if($checkResult){//alert the user if email already exists
            echo "<script>alert('Email Address Already Exists')</script>";                 
-
         }else{
+            //Insert the user's information into the users table if the email is new
             $sql = "INSERT INTO users (firstname, lastname, grade, dob, email, password) values ('$firstname','$lastname','$grade','$dob','$email','$password')";
             $result = mysqli_query($conn, $sql);
+            //Alert the user of success or failure of the sign up
             if($result){
                 echo "<script>alert('Inserted Successfully')</script>";
             }else{
                 echo "<script>alert('error')</script>";
             }
         } 
-
-
-
-    
-
 }
 
 
