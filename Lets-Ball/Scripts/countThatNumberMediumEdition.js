@@ -95,7 +95,8 @@
             numberContainer.style.display = "none"; // Hide number container
             result.textContent = success ? `Congratulations! You've clicked all numbers! Final streak: ${streak}.` : "Time's up! try again, your final streak:" +streak+".";
             const gameId = await fetchGameId('CountNumberM');
-            logEvent(gameId, "Highest Streak", highestStreak);
+            //highest streak stat acts as the number of correct count
+            logEvent(gameId, "Correct Count", highestStreak);
             logEvent(gameId, "Fails", streakLosses);
             logEvent(gameId, "TimeSpent", timers);
             playButton.disabled = false;

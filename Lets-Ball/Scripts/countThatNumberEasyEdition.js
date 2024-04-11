@@ -125,7 +125,8 @@
             clearInterval(timer);
             result.textContent += " Game over, your final streak was " + streak + ".";
             const gameId = await fetchGameId('CountNumber');
-            logEvent(gameId, "Highest Streak", highestStreak);
+            //highest streak stat acts as the number of correct count
+            logEvent(gameId, "Correct Count", highestStreak);
             logEvent(gameId, "Fails", streakLosses);
             logEvent(gameId, "TimeSpent", timers);
             playButton.disabled = false;

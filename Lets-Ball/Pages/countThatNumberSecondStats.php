@@ -1,5 +1,5 @@
 <?php
-//connects to the database and retrieves the latest 'Highest Streak', 'Fails' and 'TimeSpent' event values, then stores them or indicates 'N/A' if not found.
+//connects to the database and retrieves the latest 'Correct Count', 'Fails' and 'TimeSpent' event values, then stores them or indicates 'N/A' if not found.
 $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
 $game_id = 4; 
 $eventType = 'Score'; 
@@ -8,7 +8,8 @@ $sqlTemplate = "SELECT Event_Value FROM event
                 ORDER BY Event_ID DESC 
                 LIMIT 1";
 
-$eventTypes = ['Highest Streak', 'Fails', 'TimeSpent'];
+//correct count replaces highest streak
+$eventTypes = ['Correct Count', 'Fails', 'TimeSpent'];
 $latestValues = [];
 
 foreach ($eventTypes as $eventType) {
