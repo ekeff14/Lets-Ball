@@ -1,9 +1,11 @@
-let timer;
+        //the game state variables
+        let timer;
         let mainTimer;
         let matchesMade = 0;
         let wrongMatch = 0;
         let corrections = [];
-        let attemptedNumbers = [];
+        let attemptedNumbers = [];//stores asked numbers for correction
+        // Predefined words for numbers to match with words version
         const numberWords = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
                             "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen",
                             "Eighteen", "Nineteen", "Twenty", "Twenty-One", "Twenty-Two", "Twenty-Three", "Twenty-Four", "Twenty-Five", "Twenty-Six", "Twenty-Seven", "Twenty-Eight", "Twenty-Nine", "Thirty",
@@ -19,6 +21,7 @@ let timer;
             generateNumberButtons();
         });
 
+        //Generates number buttons and attaches them to the 'buttons-container'
         function generateNumberButtons() {
             const container = document.getElementById('buttons-container');
             for (let i = 1; i <= 100; i++) {
@@ -29,6 +32,7 @@ let timer;
             }
         }
 
+        //Starts or restarts the game and resets the game states and UI elements
         function startGame() {
             matchesMade = 0;
             corrections = [];
@@ -43,18 +47,21 @@ let timer;
             startMainTimer();
         }
 
+        //Shows the number buttons for matching
         function showNumberButtons() {
             document.querySelectorAll('#buttons-container button').forEach(button => {
                 button.style.display = 'inline-block';
             });
         }
 
+        //Hides number buttons when the game ends
         function hideNumberButtons() {
             document.querySelectorAll('#buttons-container button').forEach(button => {
                 button.style.display = 'none';
             });
         }
 
+        //Sets next target number for the player to match
         function setNextTargetNumber() {
             const num = Math.floor(Math.random() * 100) + 1;
             document.getElementById('targetNumber').textContent = numberWords[num - 1];
@@ -62,6 +69,7 @@ let timer;
             startTimer();
         }
 
+        //Checks if the player's selected number is correct
         function checkMatch(selectedNumber) {
             const targetWord = document.getElementById('targetNumber').textContent;
             const targetNumber = numberWords.indexOf(targetWord) + 1;
@@ -77,6 +85,7 @@ let timer;
             setNextTargetNumber();
         }
 
+        //Starts a timer for each matching attempt and resets the timer for each new target number to match
         function startTimer() {
             clearInterval(timer);            
             let seconds = 30;
@@ -91,7 +100,8 @@ let timer;
                 }
             }, 1000);
         }
-
+        
+        //Main timer for the entire game duration
         function startMainTimer() {
             let mainSeconds = 300;
             clearInterval(mainTimer);
@@ -105,6 +115,7 @@ let timer;
             }, 1000);
         }
 
+        //Ends the game, calculates match ratios, logs game events for stats and updates the UI
         async function endGame() {
             clearInterval(timer);
             matchesMade;wrongMatch;
@@ -120,6 +131,7 @@ let timer;
             displayCorrections();
         }
 
+        //Displays corrections for any numbers the player attempted
         function displayCorrections() {
             const correctionsContainer = document.getElementById('corrections-container');
             correctionsContainer.innerHTML = '<h2>Corrections:</h2>';
@@ -131,6 +143,7 @@ let timer;
             correctionsContainer.style.display = 'block';
         }
 
+        //Logs game events to the server for stats
         function logEvent(gameId, eventType, eventValue) {
             fetch('../Pages/log-event.php', {
                 method: 'POST',
@@ -152,6 +165,7 @@ let timer;
     .catch((error) => console.error('Error logging event:', error));
         }
 
+        //Fetches a unique game ID from the server to log events for that game
         async function fetchGameId(gameName) {
             try {
                 const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
@@ -159,7 +173,6 @@ let timer;
                 if(data.GameID) {
                     return data.GameID;
                     console.log("Game ID:", data.GameID);
-                    // You can now use the GameID in your JavaScript as needed
                 } else {
                     console.log("Game not found or error fetching Game ID.");
                 }

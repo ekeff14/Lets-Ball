@@ -1,4 +1,4 @@
-// Five separate arrays for different age groups
+//Arrays of sentences to ask 
 const sentencesArray1 = [
     "The cat sat on the mat.",
     "I have a pet fish.",
@@ -24,8 +24,9 @@ const sentencesArray5 = [
     "The moon is very round.",
     "Apples are delicious."
 ];
-//add more sentences
+//Can add more sentences
 
+//Initializing variables 
 let shuffledSentences;
 let currentIndex = 0;
 let timer;
@@ -33,15 +34,18 @@ let score = 0;
 let wrongAnswer = 0;
 let isGameActive = false;
 
+//Event listeners for user interactions
 document.getElementById('playButton').addEventListener('click', startGame);
 document.getElementById('check-answer').addEventListener('click', checkAnswer); // Event listener for the new button
 document.getElementById('user-input').addEventListener('keydown', function(event) {
+    // Allows submission on pressing Enter.
     if (event.key === "Enter" && !this.disabled) {
         event.preventDefault(); // Prevent line break in textarea
         checkAnswer();
     }
 });
 
+//Combines arrays, shuffle them, then return a selection for the game
 function getRandomSentences() {
     const allSentences = [sentencesArray1, sentencesArray2, sentencesArray3, sentencesArray4, sentencesArray5];
     // Shuffle the array of arrays and then concatenate two of them
@@ -49,6 +53,7 @@ function getRandomSentences() {
     return [].concat.apply([], shuffledArrays);
 }
 
+//Shuffles the elements of the shuffled array in getRandomSentences() and return it
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -57,6 +62,7 @@ function shuffleArray(array) {
     return array;
 }
 
+//Display the next sentence
 function displayNextSentence() {
     if(currentIndex < shuffledSentences.length) {
         const quizContainer = document.getElementById('quiz-container');
@@ -67,6 +73,7 @@ function displayNextSentence() {
     }
 }
 
+//Crosschecks user's answer
 function checkAnswer() {
     clearInterval(timer);
     const userInput = document.getElementById('user-input').value.trim();
@@ -85,7 +92,9 @@ function checkAnswer() {
     }
 }
 
+//starts the game on button click
 function startGame() {
+    //resets variables and game state
     shuffledSentences = getRandomSentences(); // Get a new set of sentences
     currentIndex = 0;
     wrongAnswer = 0;
@@ -98,6 +107,7 @@ function startGame() {
     updateGameStatus();
 }
 
+//Ends the game
  async function endGame() {
     clearInterval(timer);
     isGameActive = false;
@@ -110,6 +120,7 @@ function startGame() {
     document.getElementById('user-input').disabled = true;
 }
 
+//Logs values for stats
 function logEvent(gameId, eventType, eventValue) {
     fetch('../Pages/log-event.php', {
         method: 'POST',
@@ -131,15 +142,14 @@ return JSON.parse(text); // Then attempt to parse it as JSON
 .catch((error) => console.error('Error logging event:', error));
 }
 
-
+//Gets the gameID 
 async function fetchGameId(gameName) {
     try {
         const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
         const data = await response.json();
         if(data.GameID) {
             return data.GameID;
-            console.log("Game ID:", data.GameID);
-            // You can now use the GameID in your JavaScript as needed
+            console.log("Game ID:", data.GameID);            
         } else {
             console.log("Game not found or error fetching Game ID.");
         }
@@ -148,15 +158,18 @@ async function fetchGameId(gameName) {
     }
 }
 
+//Updates the UI with the current game status
 function updateGameStatus() {
     document.getElementById('user-input').value = ''; // Clear the textarea for the next sentence
     displayNextSentence();
 }
 
+//Updates UI with the current score
 function updateScore() {
     document.getElementById('score-container').textContent = `Score: ${score}`;
 }
 
+//Starts/reset the timer for the current sentence
 function startTimer() {
     clearInterval(timer);
     let seconds = 60;
@@ -170,7 +183,7 @@ function startTimer() {
         if(seconds <= 0) {
             clearInterval(timer);
             document.getElementById('timer-container').textContent = '';
-            checkAnswer(); // Automatically move to the next sentence if time runs out
+            checkAnswer(); // Automatically crosscheck and move to the next sentence if time runs out
         }
     }, 1000);
 }

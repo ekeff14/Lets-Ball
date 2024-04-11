@@ -1,12 +1,15 @@
-let secretNumber;
+        //Variables storing the state of the game
+        let secretNumber;//number to guess
         let attemptsLeft;
         let timeLeft;
         let timer;
+
+        //variables for stats
         let NEtimercheck = 0;
         let NEnumberOfGuesses = 0;
         let NEfirstAttemptWin = false;
 
-        // Function to start or restart the game
+        //Initializes the game with a random number and resets game metrics in new game
         function startGame() {
             secretNumber = Math.floor(Math.random() * 51) - 25;
             attemptsLeft = 30;
@@ -14,17 +17,19 @@ let secretNumber;
             NEtimercheck = 0;
             NEnumberOfGuesses = 0;
             NEfirstAttemptWin = false;
-            updateUIForGameStart();
-            startTimer();
+            updateUIForGameStart();//Updates the UI when a new game starts
+            startTimer();//Starts the game timer as well
         }
 
-        document.getElementById("startButton").addEventListener("click", startGame);
+        document.getElementById("startButton").addEventListener("click", startGame);//The start button Event listener
 
+        //Gives hint about the secret number 
         function provideHint() {
             const hintMessage = secretNumber % 2 === 0 ? "The number is even." : "The number is odd.";
             document.getElementById("message").textContent = hintMessage;
         }
 
+        //Starts the timer and handles end game message when time runs out
         function startTimer() {
             clearInterval(timer); // Clear any previous timer
             timer = setInterval(() => {
@@ -37,14 +42,14 @@ let secretNumber;
             }, 1000);
         }
 
-        function handleGuess(userGuess){
-                
+        //Handles the logic when a user submits a guess
+        function handleGuess(userGuess){                
             const isCorrect = checkGuess(userGuess);
-            if (isCorrect){
-             
+            if (isCorrect){             
             }
     }
 
+        //Crosschecks the user's guess against the secret number and shows feedback
         function checkGuess() {
             const userGuess = parseInt(document.getElementById("user-guess").value);
             if (isNaN(userGuess) || userGuess < -25 || userGuess > 25) {
@@ -67,6 +72,7 @@ let secretNumber;
             }
         }
 
+        //Ends the game, logs the metrics and disables user input
         async function endGame(message) {
             if(NEnumberOfGuesses === 1){
                 NEfirstAttemptWin = true;
@@ -88,6 +94,7 @@ let secretNumber;
             document.getElementById("startButton").style.display = ""; // Show the start button to allow for a new game
         }
 
+        //Logs events to the server
         function logEvent(gameId, eventType, eventValue) {
             fetch('../Pages/log-event.php', {
                 method: 'POST',
@@ -110,14 +117,14 @@ let secretNumber;
         }
 
 
+        //Fetch game ID from the server for event logging
         async function fetchGameId(gameName) {
             try {
                 const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
                 const data = await response.json();
                 if(data.GameID) {
                     return data.GameID;
-                    console.log("Game ID:", data.GameID);
-                    // You can now use the GameID in your JavaScript as needed
+                    console.log("Game ID:", data.GameID);                    
                 } else {
                     console.log("Game not found or error fetching Game ID.");
                 }
@@ -127,7 +134,9 @@ let secretNumber;
         }
         
 
+        //Updates UI to show the new game state
         function updateUIForGameStart() {
+            //Resets the input fields and buttons for new game
             document.getElementById("user-guess").disabled = false;
             document.getElementById("user-guess").value = ""; // Clear the input field
             document.getElementById("guessButton").disabled = false;

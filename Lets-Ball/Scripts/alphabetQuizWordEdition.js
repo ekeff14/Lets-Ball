@@ -5,6 +5,7 @@ const wordsArray3 = ["apple", "orange", "grape", "melon", "peach"];
 const wordsArray4 = ["blue", "red", "green", "yellow", "pink"];
 const wordsArray5 = ["jump", "play", "run", "walk", "climb"];
 
+//Game state variables
 let shuffledWords;
 let currentIndex = 0;
 let timer;
@@ -12,20 +13,24 @@ let score = 0;
 let isGameActive = false;
 let wrongAnswer = 0;
 
+//Event listeners for game controls
 document.getElementById('playButton').addEventListener('click', startGame);
 document.getElementById('submit-answer').addEventListener('click', checkAnswer); // Event listener for the submit button
 document.getElementById('user-input').addEventListener('keydown', function(event) {
+    //submits answer when enter key is pressed
     if (event.key === "Enter") {
         checkAnswer();
     }
 });
 
+//Combines and shuffle word arrays to display
 function getRandomWordSets() {
     const allWordSets = [wordsArray1, wordsArray2, wordsArray3, wordsArray4, wordsArray5];
     const shuffled = shuffleArray(allWordSets);
     return shuffled[0].concat(shuffled[1]);
 }
 
+//Shuffles the shuffled array in getRandomWordSets()
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -34,6 +39,7 @@ function shuffleArray(array) {
     return array;
 }
 
+//Displays the next word from the shuffled array
 function displayNextWord() {
     if(currentIndex < shuffledWords.length) {
         const quizContainer = document.getElementById('quiz-container');
@@ -44,6 +50,7 @@ function displayNextWord() {
     }
 }
 
+//crosschecks the user's answer
 function checkAnswer() {
     clearInterval(timer);
     const userInput = document.getElementById('user-input').value.trim().toLowerCase();
@@ -63,6 +70,7 @@ function checkAnswer() {
     }
 }
 
+//Starts the game on button click and initialize variables for a new game
 function startGame() {
     shuffledWords = getRandomWordSets();
     currentIndex = 0;
@@ -75,6 +83,7 @@ function startGame() {
     updateGameStatus();
 }
 
+//Ends the game and logs events
 async function endGame() {
     clearInterval(timer);
     isGameActive = false;
@@ -87,12 +96,14 @@ async function endGame() {
     document.getElementById('user-input').disabled = true;
 }
 
+//Updates the score and word being asked
 function updateGameStatus() {
     document.getElementById('score-container').textContent = `Score: ${score}`;
     document.getElementById('user-input').value = '';
     displayNextWord();
 }
 
+//Initialize or reset the timer for each word
 function startTimer() {
     clearInterval(timer);
     let seconds = 30;
@@ -111,6 +122,7 @@ function startTimer() {
     }, 1000);
 }
 
+//Logs game event data to the server
 function logEvent(gameId, eventType, eventValue) {
     fetch('../Pages/log-event.php', {
         method: 'POST',
@@ -132,7 +144,7 @@ return JSON.parse(text); // Then attempt to parse it as JSON
 .catch((error) => console.error('Error logging event:', error));
 }
 
-
+//Gets the gameID
 async function fetchGameId(gameName) {
     try {
         const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
@@ -140,7 +152,6 @@ async function fetchGameId(gameName) {
         if(data.GameID) {
             return data.GameID;
             console.log("Game ID:", data.GameID);
-            // You can now use the GameID in your JavaScript as needed
         } else {
             console.log("Game not found or error fetching Game ID.");
         }

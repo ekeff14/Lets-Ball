@@ -1,4 +1,5 @@
-const numberContainer = document.getElementById("number-container");
+        //Game DOM elements(Document Object Model)
+        const numberContainer = document.getElementById("number-container");
         const result = document.getElementById("result");
         const timerDisplay = document.getElementById("timer");
         const playButton = document.getElementById("playButton");
@@ -6,6 +7,8 @@ const numberContainer = document.getElementById("number-container");
         const helpText = document.getElementById("helpText");
         const corrections = document.getElementById("corrections");
         const streakCounter = document.getElementById("streakCounter");
+        
+        //Game state variables
         let numbersToDisplay;
         let currentNumber;
         let timeRemaining;
@@ -18,6 +21,7 @@ const numberContainer = document.getElementById("number-container");
         let highestStreak = 0;
         let streakLosses = 0;
 
+        //Creates interactive number elements
         function createNumberElement(number) {
             const numberElement = document.createElement("div");
             numberElement.classList.add("number");
@@ -26,6 +30,7 @@ const numberContainer = document.getElementById("number-container");
             return numberElement;
         }
 
+        //Shuffle the array of numbers
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -34,6 +39,7 @@ const numberContainer = document.getElementById("number-container");
             return array;
         }
 
+        //Displays the numbers on the screen
         function displayNumbers() {
             numberContainer.innerHTML = "";
             numbersToDisplay.forEach(number => {
@@ -41,6 +47,7 @@ const numberContainer = document.getElementById("number-container");
             });
         }
 
+        //Displays the correct order of numbers at the end of the game as correction
         function displayCorrections() {
             corrections.innerHTML = "<h2>Correct Order:</h2>";
             originalOrder.forEach(number => {
@@ -52,6 +59,7 @@ const numberContainer = document.getElementById("number-container");
             corrections.style.display = "block";
         }
 
+        //Crosschecks user's answer to make sure it is correct, handles streak count and ends game if numbers are finished
         function checkNumber(number, element) {
             if (number === currentNumber) {
                 highestStreak++;
@@ -86,22 +94,24 @@ const numberContainer = document.getElementById("number-container");
             }
         }
 
+        //Updates the current streak of correct answers
         function updateStreakCounter() {
             streakCounter.textContent = "Streak: " + streak;
         }
 
+        //Update the timer displayed
         function updateTimerDisplay() {
             timerDisplay.textContent = `Time Remaining: ${timeRemaining} seconds`;
         }
 
+        //Gets the unique game ID 
         async function fetchGameId(gameName) {
             try {
                 const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
                 const data = await response.json();
                 if(data.GameID) {
                     return data.GameID;
-                    console.log("Game ID:", data.GameID);
-                    // You can now use the GameID in your JavaScript as needed
+                    console.log("Game ID:", data.GameID);                    
                 } else {
                     console.log("Game not found or error fetching Game ID.");
                 }
@@ -110,6 +120,7 @@ const numberContainer = document.getElementById("number-container");
             }
         }
 
+        //Ends the game and logs events for stats
         async function endGame() {
             clearInterval(timer);
             result.textContent += " Game over, your final streak was " + streak + ".";
@@ -125,6 +136,7 @@ const numberContainer = document.getElementById("number-container");
             numberContainer.style.display = "none"; // Hide the number container when the game ends
         }
 
+        //Sends events data to the server for logging
         function logEvent(gameId, eventType, eventValue) {
             fetch('../Pages/log-event.php', {
                 method: 'POST',
@@ -146,7 +158,7 @@ const numberContainer = document.getElementById("number-container");
     .catch((error) => console.error('Error logging event:', error));
         }
 
-
+        //Reinitialize the game variables for a new game
         function initializeGame() {
             originalOrder = Array.from({ length: 20 }, (_, i) => i + 1);
             numbersToDisplay = shuffleArray([...originalOrder]);
@@ -175,8 +187,9 @@ const numberContainer = document.getElementById("number-container");
             }, 1000);
         }
 
-        playButton.addEventListener("click", initializeGame);
+        playButton.addEventListener("click", initializeGame);//Event listener to start game when the play button is clicked
 
+        //Event listener for the help button to give hints when clicked
         helpButton.addEventListener("click", function() {
             if (helpCount > 0) {
                 helpText.textContent = "Click on number: " + currentNumber;

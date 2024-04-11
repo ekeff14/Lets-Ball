@@ -1,14 +1,17 @@
-let secretNumber;
+        //Initialize game variables to store the state of the game
+        let secretNumber;
         let minRange, maxRange;
         let attemptsLeft = 30;
         let timeLeft = 480;
         let timer;
+        //variables for stats
         let NEtimercheck = 0;
         let NEnumberOfGuesses = 0;
         let NEfirstAttemptWin = false;
 
-        document.getElementById("startButton").addEventListener("click", startGame);
+        document.getElementById("startButton").addEventListener("click", startGame);//Set up the start button to start the game on click
 
+        //Generates the minimum and maximum values for theSS guessing range
         function generateRandomRange() {
             minRange = Math.floor(Math.random() * 91); // 0 to 90
             maxRange = minRange + 10 + Math.floor(Math.random() * (90 - minRange)); // Ensure at least 10 difference
@@ -17,6 +20,7 @@ let secretNumber;
             document.getElementById("rangeDisplay").textContent = `Guess a number between ${minRange} and ${maxRange}:`;
         }
 
+        //Resets game state, generates a new secret number within the range, and initializes the UI for a new game
         function startGame() {
             generateRandomRange();
             secretNumber = Math.floor(Math.random() * (maxRange - minRange + 1)) + minRange;
@@ -37,11 +41,13 @@ let secretNumber;
             startTimer();
         }
 
+        //Hints if the secret number is even or odd
         function provideHint() {
             const hintMessage = secretNumber % 2 === 0 ? "The number is even." : "The number is odd.";
             document.getElementById("message").textContent = hintMessage;
         }
 
+        //Timer that counts down and ends the game if time runs out or attempts are used up
         function startTimer() {
             clearInterval(timer);
             timer = setInterval(function() {
@@ -54,21 +60,21 @@ let secretNumber;
             }, 1000);
         }
 
-        function handleGuess(userGuess){
-                
+        //Processes the user's guess
+        function handleGuess(userGuess){                
             const isCorrect = checkGuess(userGuess);
             if (isCorrect){
              
             }
     }
 
+        //Validates the guess, updates the game states, provides feedback, and ends the game if guess is correct
         function checkGuess() {
             const userGuess = parseInt(document.getElementById("user-guess").value);
             if (isNaN(userGuess) || userGuess < minRange || userGuess > maxRange) {
                 document.getElementById("message").textContent = `Please enter a valid number between ${minRange} and ${maxRange}.`;
                 return;
             }
-
             NEnumberOfGuesses++;
             attemptsLeft--;
             document.getElementById("attempts-left").textContent = attemptsLeft;
@@ -83,6 +89,7 @@ let secretNumber;
             }
         }    
 
+        //Shows game over message, logs game events, and resets UI for a new game
         async function endGame(message) {
             if(NEnumberOfGuesses === 1){
                 NEfirstAttemptWin = true;
@@ -104,6 +111,7 @@ let secretNumber;
             document.getElementById("startButton").style.display = ""; // Show play button for a new game
         }        
 
+         //Sends the game event data to a server
         function logEvent(gameId, eventType, eventValue) {
             fetch('../Pages/log-event.php', {
                 method: 'POST',
@@ -125,14 +133,14 @@ let secretNumber;
     .catch((error) => console.error('Error logging event:', error));
         }
 
+        //Gets a unique identifier for the game
         async function fetchGameId(gameName) {
             try {
                 const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
                 const data = await response.json();
                 if(data.GameID) {
                     return data.GameID;
-                    console.log("Game ID:", data.GameID);
-                    // You can now use the GameID in your JavaScript as needed
+                    console.log("Game ID:", data.GameID);                    
                 } else {
                     console.log("Game not found or error fetching Game ID.");
                 }

@@ -1,16 +1,21 @@
-let timer;
+        //Initializes game state variables
+        let timer;
         let mainTimer;
         let matchesMade = 0;
         let wrongMatch = 0;
-        let problemsAsked = [];
+        let problemsAsked = [];//Stores the math problems that have been asked for correction
+
+        //Predefined words for numbers
         const numberWords = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty"];
 
         document.addEventListener("DOMContentLoaded", function() {
             generateNumberButtons();
         });
 
+        //Dynamically generate number buttons
         function generateNumberButtons() {
             const container = document.getElementById('buttons-container');
+            //Loop to create buttons for numbers 0 through 50
             for (let i = 0; i <= 50; i++) {
                 const button = document.createElement('button');
                 button.innerText = i;
@@ -20,6 +25,7 @@ let timer;
             }
         }
 
+        //Resets game state and UI elements to start a new game
         function startGame() {
             matchesMade = 0;
             problemsAsked = [];
@@ -30,15 +36,17 @@ let timer;
             document.getElementById('corrections-container').style.display = 'none';
             showNumberButtons();
             setNextTargetNumber();
-            startMainTimer();
+            startMainTimer();//start main timer
         }
 
+        //Makes number buttons visible
         function showNumberButtons() {
             document.querySelectorAll('#buttons-container button').forEach(button => {
                 button.style.display = 'inline-block';
             });
         }
 
+        //Generates a new math problem and update the UI according to the target number
         function setNextTargetNumber() {
             const problem = generateMathProblem();
             problemsAsked.push(problem);
@@ -46,6 +54,7 @@ let timer;
             startTimer();
         }
 
+        //Randomly generates a math problem to help get the target number
         function generateMathProblem() {
             let num1 = Math.floor(Math.random() * 21);
             let num2 = Math.floor(Math.random() * num1); // Ensure num2 is always less or equal to num1 to avoid negative results
@@ -54,6 +63,7 @@ let timer;
             return { num1, num2, operation, answer };
         }
 
+         //Check for a match, update game state and UI based on if the match is correct or wrong    
         function checkMatch(selectedNumber) {
             const currentProblem = problemsAsked[problemsAsked.length - 1];
             if (selectedNumber === currentProblem.answer) {
@@ -67,6 +77,7 @@ let timer;
             setNextTargetNumber();
         }
 
+         //Clears any existing timer and starts a new countdown for the current problem    
         function startTimer() {
             clearInterval(timer);
             let seconds = 60;
@@ -82,6 +93,7 @@ let timer;
             }, 1000);
         }
 
+        //Clears any existing main timer and starts a new countdown for the entire game duration    
         function startMainTimer() {
             let mainSeconds = 300;
             clearInterval(mainTimer);
@@ -95,6 +107,7 @@ let timer;
             }, 1000);
         }
 
+         //Ends the game, log results for stats, and prepares the UI for a new game
         async function endGame() {
             clearInterval(timer);
             clearInterval(mainTimer);
@@ -111,6 +124,7 @@ let timer;
             showCorrections();
         }
 
+        //Display the correct answers for all problems asked in the problemsAsked array
         function showCorrections() {
             const correctionsContainer = document.getElementById('corrections-container');
             correctionsContainer.innerHTML = '<h2>Corrections:</h2>';
@@ -122,6 +136,7 @@ let timer;
             correctionsContainer.style.display = 'block';
         }
 
+         //Send a POST request to log game events    
         function logEvent(gameId, eventType, eventValue) {
             fetch('../Pages/log-event.php', {
                 method: 'POST',
@@ -143,6 +158,7 @@ let timer;
     .catch((error) => console.error('Error logging event:', error));
         }
 
+        //Retrieves a unique identifier for the game based on the game name for event logging
         async function fetchGameId(gameName) {
             try {
                 const response = await fetch(`../Pages/getData.php?Gname=${encodeURIComponent(gameName)}`);
@@ -150,7 +166,6 @@ let timer;
                 if(data.GameID) {
                     return data.GameID;
                     console.log("Game ID:", data.GameID);
-                    // You can now use the GameID in your JavaScript as needed
                 } else {
                     console.log("Game not found or error fetching Game ID.");
                 }
