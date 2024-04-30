@@ -16,10 +16,10 @@ function checkSession() {
     mysqli_close($conn); // Close the connection after fetching data
 
     if ($result && $row = mysqli_fetch_assoc($result)) {
-        $sessionAllowedtim = $row['allowed_time'] * 3600;
+        $sessionAllowedtim = $row['allowed_time'] * 300;
     } else {
         // Fallback allowed time for the user to use the website
-        $sessionAllowedtim = 1 * 3600;
+        $sessionAllowedtim = 1 * 300;
     }
 
     // Set or update the expire_time
@@ -56,7 +56,7 @@ function storeExpirationTimestamp($userId, $conn) {
 
     // If the query was successful and a row was found then calculate the expiration timestamp which is the current time plus the allowed time in seconds
     if ($result && $row = mysqli_fetch_assoc($result)) {        
-        $sessionAllowedTime = $row['allowed_time'] * 3600;
+        $sessionAllowedTime = $row['allowed_time'] * 300;
     $expirationTimestamp = time() + $sessionAllowedTime;
     //Update the userlimit table with the new expiration timestamp calculated for the user
     $sql = "UPDATE userlimit SET time_spent = '$expirationTimestamp' WHERE date = CURDATE() AND userid = '$userId'";

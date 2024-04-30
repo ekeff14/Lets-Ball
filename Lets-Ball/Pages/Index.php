@@ -13,7 +13,7 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database"); // conf
             $_SESSION['start_time'] = time(); //If time is left set session start time to the current time
             $_SESSION['expire_time'] = $_SESSION['start_time'] + $remainingTime;//Calculate and set the session expiry time based on the remaining time
         }else{
-            checkSession();  //check the current session status if time has finished
+            checkSession();  //check the current session status if time has finished and logs the user out
         }
 
 //If the username is not set in the session redirect to login page
@@ -105,12 +105,9 @@ if so click on here to access the <a href="Parental_Control.php">Parental Contro
 
         <footer class="topline">        
         <div class="social-media">
-            <a href="https://www.snapchat.com/add/yourusername" target="_blank">
-                <img src="../CSS/Images/snap.jpg" id="socimg1" alt="Snapchat"> @JAE367
-            </a><br>
-            <a href="https://www.instagram.com/yourusername" target="_blank">
-                <img src="../CSS/Images/ig.jpg" id="socimg2" alt="Instagram"> @JEA367
-            </a><br>
+        <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
+                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                        </a>                                    
         </div>    
     </footer>                 
         </div>

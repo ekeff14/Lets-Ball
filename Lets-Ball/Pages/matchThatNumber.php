@@ -50,12 +50,12 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
 
       <div class="gamebox">
         <div class="minitopline1">
-        <a href="matchThatNumberNormalEdition.html"><img src="../CSS/Images/" id="minigameimg1" alt="Play First Edition"></a>
+        <a href="matchThatNumberNormalEdition.html"><img src="../CSS/Images/firstMTN.webp" id="minigameimg1" alt="Play First Edition"></a>
         <p class="normaltext">Dive into a world where digits and words collide! The First Edition of Match That Number is a delightful game where players match numbers written in digits with their corresponding word forms. For example, finding the pair for "4" and "Four." It's a fantastic tool for children to reinforce their understanding of numbers and enhance their vocabulary. The game is simple, engaging, and perfectly suited for young learners who are just getting comfortable with numbers.</p>
         </div>
         
         <div class="minitopline2">
-        <a href="matchThatNumberArithmeticEdition.html"><img src="../CSS/Images/" id="minigameimg2" alt="Play arithmetic Edition"></a>
+        <a href="matchThatNumberArithmeticEdition.html"><img src="../CSS/Images/arithmeticMTN.webp" id="minigameimg2" alt="Play arithmetic Edition"></a>
         <p class="normaltext">Take your number matching to the next level with the Arithmetic Edition of Match That Number! In this game, players are presented with simple arithmetic problems written in words, and they must select the digit that represents the correct answer. Whether it's "Five plus three" or "Ten minus seven," this game challenges kids to practice their basic math skills while having fun. It's a great way for children to combine their reading and math abilities in a vibrant, interactive setting.</p>
         </div>        
         </div>
@@ -67,12 +67,9 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
         <footer class="greentopline">
             <div class="outlined-text">
             <div class="social-media">
-                <a href="https://www.snapchat.com/add/yourusername" target="_blank">
-                    <img src="../CSS/Images/snap.jpg" id="socimg1" alt="Snapchat"> @JAE367
-                </a>
-                <a href="https://www.instagram.com/yourusername" target="_blank">
-                    <img src="../CSS/Images/ig.jpg" id="socimg3" alt="Instagram"> @JEA367
-                </a>
+            <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
+                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                        </a>                                    
             </div>
         </div>
         </footer>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../CSS/Diss.css">
     <style>
         body {
-            background-image: url('../CSS/Images/logo.png');
+            background-image: url('../CSS/Images/loginimg.jpg');
             
             background-size: cover;
             
@@ -65,12 +65,9 @@
     <footer>
         <div class="outlined-text">
         <div class="social-media">
-            <a href="https://www.snapchat.com/add/yourusername" target="_blank">
-                <img src="../CSS/Images/snap.jpg" id="socimg1" alt="Snapchat"> @JAE367
-            </a><br>
-            <a href="https://www.instagram.com/yourusername" target="_blank">
-                <img src="../CSS/Images/ig.jpg" id="socimg2" alt="Instagram"> @JEA367
-            </a><br>
+        <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
+                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                        </a>                                    
         </div>
     </div>
     </footer>

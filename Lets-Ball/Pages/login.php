@@ -9,12 +9,12 @@
         /*specific css*/
         body {
             /* Set the background image */
-            background-image: url('../CSS/Images/logo.png');
+            background-image: url('../CSS/Images/loginimg.jpg');
             
             /* Make the background image cover the entire page */
             background-size: cover;
             
-            /* Set the background image to no-repeat */
+            /* Set the background image */
             background-repeat: repeat;
             
             /* Fix the background image to the viewport */
@@ -52,12 +52,9 @@
     <footer>
         <div class="outlined-text">
         <div class="social-media">
-            <a href="https://www.snapchat.com/add/yourusername" target="_blank">
-                <img src="../CSS/Images/snap.jpg" id="socimg1" alt="Snapchat"> @JAE367
-            </a><br>
-            <a href="https://www.instagram.com/yourusername" target="_blank">
-                <img src="../CSS/Images/ig.jpg" id="socimg3" alt="Instagram"> @JEA367
-            </a><br>
+        <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
+                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                        </a>                                    
         </div>
     </div>
     </footer>

@@ -72,12 +72,9 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
         <footer class="greentopline">
             <div class="outlined-text">
             <div class="social-media">
-                <a href="https://www.snapchat.com/add/yourusername" target="_blank">
-                    <img src="../CSS/Images/snap.jpg" id="socimg1" alt="Snapchat"> @JAE367
-                </a>
-                <a href="https://www.instagram.com/yourusername" target="_blank">
-                    <img src="../CSS/Images/ig.jpg" id="socimg3" alt="Instagram"> @JEA367
-                </a>
+            <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
+                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                        </a>                                    
             </div>
         </div>
         </footer>
