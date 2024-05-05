@@ -51,7 +51,7 @@ foreach ($eventTypes as $eventType) {
             
             <header>
             <div aria-label="Home">
-                <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+                <a href="Index.php"><img src="../Images/logo.png" alt="Homepage"></a>
                 </div>
                 <h2 class="white">Match That Number Arithmetic Edition Statistic</h2>                    
             </header> 
@@ -99,7 +99,7 @@ foreach ($eventTypes as $eventType) {
         <div class="outlined-text topline">
         <div class="social-media">
         <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
-                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                            <img src="../Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
                         </a>                                    
         </div>
     </div>

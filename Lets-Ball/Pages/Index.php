@@ -46,7 +46,7 @@ $username = $_SESSION["username"];
         <div class="responsive semi-transparent-background outlined-text">
                                             
         <header>        
-            <img src="../CSS/Images/logo.png" alt="Logo">
+            <img src="../Images/logo.png" alt="Logo">
 
             <?php echo "<h1 class='outlined-text' style='color: white;'>Hey ".$username." LET'S BALL!</h1>"; ?>            
 
@@ -106,7 +106,7 @@ if so click on here to access the <a href="Parental_Control.php">Parental Contro
         <footer class="topline">        
         <div class="social-media">
         <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
-                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                            <img src="../Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
                         </a>                                    
         </div>    
     </footer>                 

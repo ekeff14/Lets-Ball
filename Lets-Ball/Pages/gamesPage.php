@@ -32,7 +32,7 @@ $username = $_SESSION["username"];//Get username
       <header>
       
         <div class="Mainlogo" aria-label="Home">
-        <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+        <a href="Index.php"><img src="../Images/logo.png" alt="Homepage"></a>
         </div>
           
   <h1 class="white">
@@ -91,16 +91,16 @@ $username = $_SESSION["username"];//Get username
 
 
       <div class="gamebox">
-        <a href="alphabetQuiz.php"><img src="../CSS/Images/playaq.png" id="gameimg3" alt="Play Alphabet Quiz!"></a>
+        <a href="alphabetQuiz.php"><img src="../Images/playaq.png" id="gameimg3" alt="Play Alphabet Quiz!"></a>
         <p class="normaltext">Play the Alphabet Quiz Series: From single letters to entire sentences, our Alphabet Quiz games are here to guide you through the wonders of the alphabet. Learn letters, spell words, and build sentences in a colorful, engaging way.</p>
         
-        <a href="countThatNumber.php"><img src="../CSS/Images/playctn.png" id="gameimg2" alt="Play Count That Number!"></a>
+        <a href="countThatNumber.php"><img src="../Images/playctn.png" id="gameimg2" alt="Play Count That Number!"></a>
         <p class="normaltext">Play the Count That Number Series: Embark on a numerical adventure where counting becomes a quest! From simple ascending orders to a mix of positive and negative numbers, these games enhance number recognition and basic arithmetic skills.</li></p>
 
-        <a href="guessThatNumber.php"><img src="../CSS/Images/playgtn.png" id="gameimg3" alt="Play Guess That Number!"></a>
+        <a href="guessThatNumber.php"><img src="../Images/playgtn.png" id="gameimg3" alt="Play Guess That Number!"></a>
         <p class="normaltext">Play the Guess That Number Series: Put on your thinking cap and guess numbers within given ranges. Whether it's positive numbers, a mix of positive and negative, or numbers within random ranges, it's a thrilling way to understand number values and ranges.</p>
 
-        <a href="matchThatNumber.php"><img src="../CSS/Images/playmtn.png" id="gameimg1" alt="Play Guess That Number!"></a>
+        <a href="matchThatNumber.php"><img src="../Images/playmtn.png" id="gameimg1" alt="Play Guess That Number!"></a>
         <p class="normaltext">Play the Match That Number Series: Challenge your number matching skills by connecting digits to their word forms, or solve simple arithmetic problems to find the right answer. It's a fun way to boost memory and number sense!</p>
         </div>
         </main>
@@ -113,7 +113,7 @@ $username = $_SESSION["username"];//Get username
         <div class="outlined-text">
         <div class="social-media">
         <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
-                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                            <img src="../Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
                         </a>                                    
         </div>
     </div>

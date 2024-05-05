@@ -34,7 +34,7 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
       <header>
       
         <div aria-label="Home">
-        <a href="Index.php"><img src="../CSS/Images/logo.png" alt="Homepage"></a>
+        <a href="Index.php"><img src="../Images/logo.png" alt="Homepage"></a>
         </div>
           
   <h1 class="white">
@@ -50,12 +50,12 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
 
       <div class="gamebox">
         <div class="minitopline1">
-        <a href="countThatNumberEasyEdition.html"><img src="../CSS/Images/firstCTN.webp" id="minigameimg1" alt="Play First Edition"></a>
+        <a href="countThatNumberEasyEdition.html"><img src="../Images/firstCTN.webp" id="minigameimg1" alt="Play First Edition"></a>
         <p class="normaltext">In this beginner-friendly version, players are presented with a series of positive numbers displayed in a random, unsorted manner. The objective is simple yet engaging: click on the numbers in ascending order as quickly as possible. With a 30-second time limit, players are encouraged to recognize number sequences and enhance their counting skills. It's an exciting race against time that helps reinforce basic numeracy and fosters quick thinking.</p>
         </div>
 
         <div class="minitopline2">
-        <a href="countThatNumberMediumEdition.html"><img src="../CSS/Images/secondCTN.webp" id="minigameimg2" alt="Play Second Edition"></a>
+        <a href="countThatNumberMediumEdition.html"><img src="../Images/secondCTN.webp" id="minigameimg2" alt="Play Second Edition"></a>
         <p class="normaltext">Taking the challenge up a notch, this edition combines both positive and negative numbers, asking players to sort them in ascending order. With the same 30-second time frame, the inclusion of negative numbers introduces the concept of value order beyond zero, providing a gentle introduction to more complex arithmetic. It's perfect for kids who have mastered basic counting and are ready to explore a little more of the number line.</p>
         </div>
         </div>
@@ -68,7 +68,7 @@ $conn = mysqli_connect("127.0.0.1:8111","root","","lets_ball_database");
             <div class="outlined-text">
             <div class="social-media">
             <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
-                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                            <img src="../Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
                         </a>                                    
             </div>
         </div>

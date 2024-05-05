@@ -9,7 +9,7 @@
         /*specific css*/
         body {
             /* Set the background image */
-            background-image: url('../CSS/Images/loginimg.jpg');
+            background-image: url('../Images/loginimg.jpg');
             
             /* Make the background image cover the entire page */
             background-size: cover;
@@ -26,7 +26,7 @@
     <div class="outlined-text semi-transparent-background">
 
     <header>        
-        <img src="../CSS/Images/logo.png" alt="Site Logo">
+        <img src="../Images/logo.png" alt="Site Logo">
         <h1 class="white">Lets Log In!</h1>    
     </header>
     
@@ -53,7 +53,7 @@
         <div class="outlined-text">
         <div class="social-media">
         <a href="https://www.linkedin.com/in/jeffrey-asiana" target="_blank">
-                            <img src="../CSS/Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
+                            <img src="../Images/linkedln.jpg" id="socimg1" alt="Linkedln"> Linkedln
                         </a>                                    
         </div>
     </div>

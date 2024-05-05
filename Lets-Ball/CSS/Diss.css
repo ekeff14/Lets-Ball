@@ -89,7 +89,7 @@ img{
 
 /*all pages body*/
 body {
-    background-image: url('Images/backg.png');  
+    background-image: url('../Images/backg.png');  
     background-size: cover;  /*This will cover the entire area of the body*/ 
     background-repeat: repeat; 
     background-attachment:fixed;
